@@ -1,0 +1,11 @@
+.venv*/
+__pycache__/
+*.pyc
+runtimes/vllm/cache/
+runtimes/sglang/cache/
+runtimes/ollama/models/
+results/*.server.log
+results/*.guard.log
+*.bak
+try_*.runs.jsonl
+try_*.summary.jsonl

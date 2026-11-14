@@ -1,0 +1,172 @@
+[
+ {
+  "question": 0,
+  "gold_id": "o009",
+  "gold_label": "account login / urgent issue",
+  "criteria": {
+   "o000": "mobile app / feedback",
+   "o001": "security incident / urgent issue",
+   "o002": "tax documents / complaint",
+   "o003": "plan downgrade / urgent issue",
+   "o004": "warranty / urgent issue",
+   "o005": "data privacy / feedback",
+   "o006": "website outage / general question",
+   "o007": "password reset / feedback",
+   "o008": "gift card / feedback",
+   "o009": "account login / urgent issue"
+  }
+ },
+ {
+  "question": 1,
+  "gold_id": "o002",
+  "gold_label": "refund / change request",
+  "criteria": {
+   "o000": "invoice / change request",
+   "o001": "password reset / complaint",
+   "o002": "refund / change request",
+   "o003": "invoice / feedback",
+   "o004": "warranty / general question",
+   "o005": "website outage / feedback",
+   "o006": "account login / feedback",
+   "o007": "delivery delay / general question",
+   "o008": "website outage / general question",
+   "o009": "warranty / change request"
+  }
+ },
+ {
+  "question": 2,
+  "gold_id": "o008",
+  "gold_label": "delivery delay / complaint",
+  "criteria": {
+   "o000": "subscription / general question",
+   "o001": "gift card / change request",
+   "o002": "security incident / feedback",
+   "o003": "product defect / feedback",
+   "o004": "security incident / change request",
+   "o005": "account login / complaint",
+   "o006": "delivery delay / change request",
+   "o007": "data privacy / complaint",
+   "o008": "delivery delay / complaint",
+   "o009": "website outage / change request"
+  }
+ },
+ {
+  "question": 3,
+  "gold_id": "o002",
+  "gold_label": "plan upgrade / general question",
+  "criteria": {
+   "o000": "refund / feedback",
+   "o001": "API integration / complaint",
+   "o002": "plan upgrade / general question",
+   "o003": "mobile app / complaint",
+   "o004": "refund / general question",
+   "o005": "delivery delay / urgent issue",
+   "o006": "invoice / feedback",
+   "o007": "cancellation / urgent issue",
+   "o008": "delivery delay / general question",
+   "o009": "warranty / complaint"
+  }
+ },
+ {
+  "question": 4,
+  "gold_id": "o003",
+  "gold_label": "product defect / complaint",
+  "criteria": {
+   "o000": "invoice / urgent issue",
+   "o001": "cancellation / complaint",
+   "o002": "mobile app / feedback",
+   "o003": "product defect / complaint",
+   "o004": "account login / urgent issue",
+   "o005": "plan upgrade / change request",
+   "o006": "tax documents / complaint",
+   "o007": "password reset / feedback",
+   "o008": "mobile app / general question",
+   "o009": "API integration / complaint"
+  }
+ },
+ {
+  "question": 5,
+  "gold_id": "o000",
+  "gold_label": "data privacy / change request",
+  "criteria": {
+   "o000": "data privacy / change request",
+   "o001": "billing / feedback",
+   "o002": "warranty / feedback",
+   "o003": "account login / complaint",
+   "o004": "data privacy / urgent issue",
+   "o005": "tax documents / general question",
+   "o006": "plan downgrade / general question",
+   "o007": "API integration / change request",
+   "o008": "API integration / urgent issue",
+   "o009": "tax documents / urgent issue"
+  }
+ },
+ {
+  "question": 6,
+  "gold_id": "o001",
+  "gold_label": "API integration / urgent issue",
+  "criteria": {
+   "o000": "warranty / feedback",
+   "o001": "API integration / urgent issue",
+   "o002": "refund / complaint",
+   "o003": "plan upgrade / change request",
+   "o004": "mobile app / general question",
+   "o005": "API integration / change request",
+   "o006": "gift card / general question",
+   "o007": "shipping / urgent issue",
+   "o008": "website outage / urgent issue",
+   "o009": "shipping / feedback"
+  }
+ },
+ {
+  "question": 7,
+  "gold_id": "o006",
+  "gold_label": "mobile app / feedback",
+  "criteria": {
+   "o000": "data privacy / general question",
+   "o001": "shipping / change request",
+   "o002": "product defect / complaint",
+   "o003": "mobile app / general question",
+   "o004": "account login / general question",
+   "o005": "plan upgrade / feedback",
+   "o006": "mobile app / feedback",
+   "o007": "refund / feedback",
+   "o008": "refund / complaint",
+   "o009": "plan downgrade / change request"
+  }
+ },
+ {
+  "question": 8,
+  "gold_id": "o000",
+  "gold_label": "invoice / general question",
+  "criteria": {
+   "o000": "invoice / general question",
+   "o001": "API integration / general question",
+   "o002": "shipping / general question",
+   "o003": "gift card / feedback",
+   "o004": "website outage / feedback",
+   "o005": "subscription / feedback",
+   "o006": "mobile app / feedback",
+   "o007": "API integration / complaint",
+   "o008": "delivery delay / complaint",
+   "o009": "product defect / general question"
+  }
+ },
+ {
+  "question": 9,
+  "gold_id": "o003",
+  "gold_label": "security incident / urgent issue",
+  "criteria": {
+   "o000": "refund / complaint",
+   "o001": "cancellation / complaint",
+   "o002": "tax documents / feedback",
+   "o003": "security incident / urgent issue",
+   "o004": "plan upgrade / general question",
+   "o005": "shipping / complaint",
+   "o006": "shipping / urgent issue",
+   "o007": "warranty / complaint",
+   "o008": "mobile app / complaint",
+   "o009": "website outage / general question"
+  }
+ }
+]
