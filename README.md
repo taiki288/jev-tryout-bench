@@ -29,6 +29,7 @@ bench/
   summarize2.py    results/*.summary.jsonl → Markdown の表
   export_dataset.py  使った質問・選択肢・答えを dataset/ に書き出す
 runtimes/<runtime>/  サーバーの起動・計測スクリプト（common.sh にメモリ監視などの共通処理）
+tools/selftest.sh  全ランタイムのスクリプトが動くかを最小の条件で確かめる（約40分）
 setup/             環境の作り方（venv、llama.cpp のビルド、Docker イメージ）
 dataset/           計測に使った質問・選択肢・画像・答え
 results/           計測結果（1 回ごと: *.runs.jsonl、条件ごとの集計: *.summary.jsonl）
@@ -37,7 +38,7 @@ docs/              結果のまとめ、手で速さを確かめる手順
 
 ## 使い方
 
-準備は [setup/README.md](setup/README.md)。リポジトリは Orin 上に置き、計測も Orin の中で完結させる
+準備は [setup/README.md](setup/README.md)。準備ができたら `tools/selftest.sh` で全ランタイムが動くか確かめられる（`tools/selftest.sh vllm` のように 1 つだけも可）。リポジトリは Orin 上に置き、計測も Orin の中で完結させる
 （リクエストは localhost に送るので、ネットワークの遅延は入らない）。
 
 ```bash
