@@ -4,6 +4,7 @@
 # usage: runtimes/llamacpp/run.sh <hf repo> <gguf> <mmproj> <label> <out> [bench_vllm options]
 #   <mmproj> is a file name in the same repo, or an absolute path
 #   MODE=acc runtimes/llamacpp/run.sh ...   runs the accuracy set (bench/eval_acc.py) instead of the speed benchmark
+#   MODE=grid runtimes/llamacpp/run.sh ...  runs bench/latency_grid.py (options x image size)
 # example:
 #   runtimes/llamacpp/run.sh ggml-org/Clef-Flash-GGUF Clef-Flash-BF16.gguf mmproj-Clef-Flash-BF16.gguf llamacpp-bf16 results/clef-flash_llamacpp_bf16
 # Clef evaluates the whole prompt in one batch, so -b/-ub must exceed the longest prompt (3.5k tokens here).
@@ -19,7 +20,9 @@ used0=$(mem_used); log=${out}.server.log; t0=$(date +%s)
 pid=$!; guard_pid $pid "$log"
 until curl -sf localhost:8080/health >/dev/null; do kill -0 $pid 2>/dev/null || { echo SERVER DIED; tail -20 "$log"; exit 1; }; sleep 2; done
 echo "ready in $(( $(date +%s)-t0 )) s"
-if [ "${MODE:-speed}" = acc ]; then
+if [ "${MODE:-speed}" = grid ]; then
+  "$PY" bench/latency_grid.py --backend systemone --url http://127.0.0.1:8080/v1/systemone --model jev --label "$label" --out "$out" "$@"
+elif [ "${MODE:-speed}" = acc ]; then
   "$PY" bench/eval_acc.py --backend systemone --url http://127.0.0.1:8080/v1/systemone --model jev --label "$label" --out "$out" "$@"
 else
   "$PY" bench/bench_vllm.py --url http://127.0.0.1:8080/v1/systemone --model jev --label "$label" --out "$out" --ram-baseline-mb "$used0" "$@"
