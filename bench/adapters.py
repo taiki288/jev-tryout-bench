@@ -153,33 +153,46 @@ class Intern:
 
     @classmethod
     def prompt(cls, rec, has_img, tmpl):
-        """The chat-formatted text with a <decision> marker where the answer symbol goes, and the options.
-        tmpl: the tokenizer (or processor) whose chat template is used."""
-        instr, opts = _criteria(rec)
-        assert len(opts) <= len(cls.SYMBOLS)
-        schema = [f"route: {instr}"] + [f"    {cls.SYMBOLS[i]} = {oid}: {lab}" for i, (oid, lab) in enumerate(opts)]
+        """The chat-formatted text with one <decision> marker per question (in the assistant JSON skeleton),
+        and [(question name, options)]. All questions are answered by one forward pass (as in the authors'
+        inference.py). tmpl: the tokenizer (or processor) whose chat template is used."""
+        fields, schema = [], []
+        for name, q in rec["questions"].items():
+            opts = list(q["criteria"].items())
+            assert len(opts) <= len(cls.SYMBOLS)
+            fields.append((name, opts))
+            schema += [f"{name}: {q['instructions']}"] + [f"    {cls.SYMBOLS[i]} = {oid}: {lab}"
+                                                          for i, (oid, lab) in enumerate(opts)]
         user = ("Return one answer for every field using the supplied answer symbols.\n\n## State\n"
                 + json.dumps(rec["state"], ensure_ascii=False, indent=2) + "\n## Decision schema\n" + "\n".join(schema))
-        skeleton = json.dumps({"route": "<decision>"}, ensure_ascii=False, indent=4)
+        skeleton = json.dumps(dict.fromkeys([n for n, _ in fields], "<decision>"), ensure_ascii=False, indent=4)
         content = [{"type": "image"}, {"type": "text", "text": user}] if has_img else user
         msgs = [{"role": "system", "content": cls.SYSTEM}, {"role": "user", "content": content},
                 {"role": "assistant", "content": skeleton}]
         text = tmpl.apply_chat_template(msgs, tokenize=False, add_generation_prompt=False, enable_thinking=False,
                                         add_vision_id=True)
-        return text, opts
+        return text, fields
 
-    def ask(self, rec, img):
+    def ask_all(self, rec, img):
+        """Every question of rec in one pass: ({question name: {option id: probability}}, input token count)."""
         torch = self.torch
-        text, opts = self.prompt(rec, img is not None, self.proc if img is not None else self.tok)
+        text, fields = self.prompt(rec, img is not None, self.proc if img is not None else self.tok)
         enc = (self.proc(text=[text], images=[img], return_tensors="pt") if img is not None
                else self.tok(text, add_special_tokens=False, return_tensors="pt")).to("cuda")
         pos = (enc["input_ids"][0] == self.marker).nonzero().flatten() - 1
-        assert len(pos) == 1
+        assert len(pos) == len(fields)
         with torch.inference_mode():
-            logits = self.model(**enc, use_cache=False, logits_to_keep=pos).logits[0, 0]
-            p = logits[self.sym_ids[:len(opts)]].float().softmax(-1).cpu().tolist()
+            logits = self.model(**enc, use_cache=False, logits_to_keep=pos).logits[0]
+            out = {}
+            for j, (name, opts) in enumerate(fields):
+                p = logits[j, self.sym_ids[:len(opts)]].float().softmax(-1).cpu().tolist()
+                out[name] = {oid: p[i] for i, (oid, _) in enumerate(opts)}
         torch.cuda.synchronize()
-        return {oid: p[i] for i, (oid, _) in enumerate(opts)}, enc["input_ids"].shape[-1]
+        return out, enc["input_ids"].shape[-1]
+
+    def ask(self, rec, img):
+        out, ntok = self.ask_all(rec, img)
+        return out["route"], ntok
 
 
 class EdgeLLM:
@@ -212,7 +225,9 @@ class EdgeLLM:
         if self.kind == "gemma4":
             text, opts = Smaug.prompt(rec, img is not None)
         else:
-            text, opts = Intern.prompt(rec, img is not None, self.tok)
+            text, fields = Intern.prompt(rec, img is not None, self.tok)
+            assert len(fields) == 1, "the edgellm backend reads one question per request"
+            opts = fields[0][1]
             text = text[:text.index("<decision>")]
         ids = self.sym_ids[:len(opts)]
         req = rt.create_generation_request([[rt.create_text_message("user", text)]], temperature=0.0, top_k=1,
