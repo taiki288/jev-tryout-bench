@@ -2,17 +2,21 @@
 # Build a TensorRT Edge-LLM engine (text + vision) for a decision model, with Edge-LLM's direct builder.
 # Setup (once, see setup/README.md):  uv venv --system-site-packages ~/.venv-edgellm
 #                                     uv pip install "tensorrt-edgellm[runtime,onnx]==0.12.0"
-# usage: runtimes/edgellm/build.sh <hf repo> <name> [trtedge build options]
+# usage: runtimes/edgellm/build.sh <hf repo or local checkpoint dir> <name> [trtedge build options]
 #   -> checkpoint ~/edgellm-ckpt/<name> (links to the HF cache, config.json patched if needed)
 #      engines    ~/edgellm-engines/<name>, log ~/edgellm-engines/<name>.build.log
 # example:
 #   runtimes/edgellm/build.sh abacusai/Smaug-Decisions smaug-fp16 --max-image-tokens 560 --max-image-tokens-per-image 560
-# Then measure with MODE=acc runtimes/edgellm/run.sh (or bench/eval_acc.py --backend edgellm).
+# INT8 (W8A8 SmoothQuant): quantize first (needs: uv pip install "tensorrt-edgellm[quantize]==0.12.0"), then build from the output dir
+#   ~/.venv-edgellm/bin/trtedge quantize llm --model-dir ~/edgellm-ckpt/smaug-fp16 --output-dir ~/edgellm-ckpt/smaug-int8sq-src \
+#       --quantization int8_sq --dtype fp16 --num-samples 128
+#   runtimes/edgellm/build.sh ~/edgellm-ckpt/smaug-int8sq-src smaug-int8sq --max-image-tokens 560 --max-image-tokens-per-image 560
+# Then measure with runtimes/edgellm/run.sh <name> ... (or a line in tools/acc_lists/tensorrt.txt).
 # Do not build while a benchmark is running.
 . "$(dirname "$0")/../common.sh"
 EDGE_VENV="${EDGE_VENV:-$HOME/.venv-edgellm}"
 repo=$1; name=$2; shift 2
-snap=$(snapshot "$repo") || exit 1
+if [ -d "$repo" ]; then snap=$(readlink -f "$repo"); else snap=$(snapshot "$repo") || exit 1; fi
 ckpt=$HOME/edgellm-ckpt/$name; eng=$HOME/edgellm-engines/$name
 mkdir -p "$ckpt" "$HOME/edgellm-engines"
 for f in "$snap"/*; do [ "$(basename "$f")" = config.json ] || ln -sfn "$(readlink -f "$f")" "$ckpt/$(basename "$f")"; done

@@ -16,6 +16,7 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 |---|---|---:|---:|
 | d1-2B（bf16） | llama.cpp | 98.5% | 0.15 秒 |
 | Smaug-Decisions（Gemma 4 E4B） | TensorRT（Edge-LLM） | 97.6% | 0.47 秒 |
+| Smaug-Decisions（Gemma 4 E4B, INT8 W8A8） | TensorRT（Edge-LLM） | 97.0% | 0.35 秒 |
 | Smaug-Decisions（Gemma 4 E4B） | host | 97.6% | 0.94 秒 |
 | d3-nano（bf16） | llama.cpp | 97.3% | 0.29 秒 |
 | Clef（27B, Q4_K_M） | llama.cpp | 96.7% | 3.16 秒 |
@@ -23,7 +24,7 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 | Intern-Decision 2B | host | 94.5% | 0.21 秒 |
 
 小型の判定モデルで Clef-flash と同じかそれ以上の正解率が出る。量子化（Q8〜Q2）は正解率をほぼ落とさないが、速くもならない。
-TensorRT（Edge-LLM）は Smaug で正解率を変えずに約 2 倍速くなった。
+TensorRT（Edge-LLM）は Smaug で正解率を変えずに約 2 倍、計算も INT8 にする量子化（W8A8）で約 2.7 倍速くなった。
 
 ## 速さの早見表（選択肢 100、平均応答時間 秒、モデル読み込み済み）
 

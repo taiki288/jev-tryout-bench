@@ -10,7 +10,8 @@ Jetson AGX Orin 64GB（MAXN）、1 問ずつ順番に投げたときの平均時
   正解率 98.5%、画像付き 0.15 秒（画像 448px）。3Hz の目標を大きく上回る
 - **量子化しても正解率はほとんど落ちないが、速くもならない。** 判定は入力を 1 回通すだけ（prefill）で、
   計算の量で時間が決まるため。llama.cpp では量子化を強くするほど遅くなる（Clef-flash: BF16 0.95 秒 → Q2 1.37 秒）
-- **TensorRT（Edge-LLM）はモデルによる。** Smaug-Decisions（Gemma 4）は正解率を変えずに画像付きで 0.94 → 0.47 秒（約 2 倍）。
+- **TensorRT（Edge-LLM）はモデルによる。** Smaug-Decisions（Gemma 4）は正解率を変えずに画像付きで 0.94 → 0.47 秒（約 2 倍）、
+  INT8（W8A8）にすると 0.35 秒（約 2.7 倍、正解率 −0.6 ポイント）。
   Intern-Decision 2B（Qwen3.5）は逆に遅くなった
 - **大きいモデルを強く量子化しても、小型モデルには届かない。** Clef（27B）は Q2 でも 1 問 4 秒で、正解率も d1-2B より低い
 - どのモデルも「点の数を数える」問題が苦手（20 問中 4〜17 問）。ここがモデルの差がいちばん出る
@@ -56,11 +57,16 @@ Jetson AGX Orin 64GB（MAXN）、1 問ずつ順番に投げたときの平均時
 | モデル | ランタイム | 精度 | 正解率 | 正解の確率 | 文章だけ ms | 画像付き ms | transformers 版との一致 |
 |---|---|---|---:|---:|---:|---:|---:|
 | Smaug-Decisions | host（transformers） | bf16 | 97.6% | 0.964 | 180 | 942 | – |
-| Smaug-Decisions | **TensorRT** | fp16 | 97.6% | 0.964 | **123** | **469** | 99.7% |
+| Smaug-Decisions | **TensorRT** | fp16 | 97.6% | 0.964 | 123 | 469 | 99.7% |
+| Smaug-Decisions | **TensorRT** | int8_sq（W8A8） | 97.0% | 0.936 | **86** | **348** | 97.3% |
 | Intern-Decision 2B | host（transformers） | bf16 | 94.5% | 0.918 | 112 | 210 | – |
 | Intern-Decision 2B | TensorRT | fp16 | 95.2% | 0.919 | 164 | 251 | 98.5% |
 
 - Smaug は TensorRT にすると、正解率は同じまま、画像付きで約 2 倍、文章だけで約 1.5 倍速くなった（画像は transformers と同じ 560 トークン）
+- INT8（W8A8、ModelOpt の SmoothQuant。`trtedge quantize llm --quantization int8_sq`）にすると、FP16 よりさらに約 1.35 倍速い
+  （transformers 比で画像付き約 2.7 倍）。正解率は 0.6 ポイント、正解の確率は 0.03 下がった。
+  重みだけでなく計算（行列積）も INT8 になるので、GGUF の量子化と違って速くなる。画像の部分（vision tower）は FP16 のまま。
+  較正は Edge-LLM の既定のデータセット 128 件（約 5 分）
 - Intern-Decision 2B（Qwen3.5）は逆に 2〜5 割遅くなった。Qwen3.5 は層の 3/4 が線形 attention（Gated DeltaNet）で、
   transformers 版は flash-linear-attention の Triton カーネルを使っている。Edge-LLM の Orin 向けの実装がまだ遅いと思われる（原因は未調査）
 - 判定の確率は、1 トークンだけ生成させて、選択肢の記号の log 確率を読む（記号に同じ大きさの logit bias を足して上位に入れ、足し直して 1 にする）。
