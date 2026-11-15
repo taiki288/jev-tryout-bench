@@ -1,0 +1,4342 @@
+[
+ {
+  "id": "intent-000",
+  "task": "intent",
+  "text": "I forgot my password and the reset link never arrives. How do I get back in?",
+  "image": null,
+  "gold": "reset a forgotten password",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-001",
+  "task": "intent",
+  "text": "Can't remember my password. Please help me set a new one.",
+  "image": null,
+  "gold": "reset a forgotten password",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-010",
+  "task": "intent",
+  "text": "I'm leaving my company, so I need my login email changed to my personal gmail.",
+  "image": null,
+  "gold": "change the account email address",
+  "near": [
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-011",
+  "task": "intent",
+  "text": "How do I switch the email address on my account to a new one?",
+  "image": null,
+  "gold": "change the account email address",
+  "near": [
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-020",
+  "task": "intent",
+  "text": "I'd like to add a second login step with an authenticator app. Where is that setting?",
+  "image": null,
+  "gold": "turn on two-factor authentication",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-021",
+  "task": "intent",
+  "text": "Our security team requires 2FA for every account. How do I enable it?",
+  "image": null,
+  "gold": "turn on two-factor authentication",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-030",
+  "task": "intent",
+  "text": "I typed the wrong password a few times and now it says my account is locked for 24 hours. Can you unlock it?",
+  "image": null,
+  "gold": "unlock an account locked after failed logins",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication"
+  ]
+ },
+ {
+  "id": "intent-031",
+  "task": "intent",
+  "text": "Account locked out after too many attempts, I need access today.",
+  "image": null,
+  "gold": "unlock an account locked after failed logins",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication"
+  ]
+ },
+ {
+  "id": "intent-040",
+  "task": "intent",
+  "text": "I don't use your service anymore. Please close my account permanently.",
+  "image": null,
+  "gold": "close and delete the account",
+  "near": [
+   "ask where data is stored",
+   "change the account email address",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "stop marketing emails",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-041",
+  "task": "intent",
+  "text": "How can I delete my account completely? I won't be coming back.",
+  "image": null,
+  "gold": "close and delete the account",
+  "near": [
+   "ask where data is stored",
+   "change the account email address",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "stop marketing emails",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-050",
+  "task": "intent",
+  "text": "I got an alert that someone signed in to my account from Brazil. That wasn't me!",
+  "image": null,
+  "gold": "report a login by someone else",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-051",
+  "task": "intent",
+  "text": "There are sessions in my account history from devices I have never owned.",
+  "image": null,
+  "gold": "report a login by someone else",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-060",
+  "task": "intent",
+  "text": "You billed my card twice for the same March order. Please return one of the payments.",
+  "image": null,
+  "gold": "refund a duplicate charge",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-061",
+  "task": "intent",
+  "text": "I see two identical charges of $49 on the same day. I only bought once.",
+  "image": null,
+  "gold": "refund a duplicate charge",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-070",
+  "task": "intent",
+  "text": "My credit card expired, I need to put the new card on file before the next renewal.",
+  "image": null,
+  "gold": "update the saved payment card",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice"
+  ]
+ },
+ {
+  "id": "intent-071",
+  "task": "intent",
+  "text": "How do I replace the card you charge every month with a different one?",
+  "image": null,
+  "gold": "update the saved payment card",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice"
+  ]
+ },
+ {
+  "id": "intent-080",
+  "task": "intent",
+  "text": "Our accountant needs the invoice for the August payment. Can you send me a copy?",
+  "image": null,
+  "gold": "send a copy of an invoice",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-081",
+  "task": "intent",
+  "text": "Where can I download a PDF of last month's invoice?",
+  "image": null,
+  "gold": "send a copy of an invoice",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-090",
+  "task": "intent",
+  "text": "We moved offices. Please update the address that appears on our invoices.",
+  "image": null,
+  "gold": "change the billing address",
+  "near": [
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-091",
+  "task": "intent",
+  "text": "The billing address on my account is old, how do I edit it?",
+  "image": null,
+  "gold": "change the billing address",
+  "near": [
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-100",
+  "task": "intent",
+  "text": "What's the difference in cost between the Basic, Pro and Business plans?",
+  "image": null,
+  "gold": "explain the price of each plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-101",
+  "task": "intent",
+  "text": "How much does each of your plans cost per month?",
+  "image": null,
+  "gold": "explain the price of each plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-110",
+  "task": "intent",
+  "text": "We've outgrown the starter tier. I want to move up to Pro today.",
+  "image": null,
+  "gold": "upgrade to a higher plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while"
+  ]
+ },
+ {
+  "id": "intent-111",
+  "task": "intent",
+  "text": "Please switch our team to the Business plan, we need more seats.",
+  "image": null,
+  "gold": "upgrade to a higher plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while"
+  ]
+ },
+ {
+  "id": "intent-120",
+  "task": "intent",
+  "text": "We don't use the advanced features. Can we move down to the basic tier to save money?",
+  "image": null,
+  "gold": "downgrade to a cheaper plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-121",
+  "task": "intent",
+  "text": "Please switch me from Premium to the cheaper Standard plan next cycle.",
+  "image": null,
+  "gold": "downgrade to a cheaper plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-130",
+  "task": "intent",
+  "text": "Please stop my monthly subscription, I don't want to be charged again.",
+  "image": null,
+  "gold": "cancel the subscription",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-131",
+  "task": "intent",
+  "text": "I want to end my membership before it renews on the 1st.",
+  "image": null,
+  "gold": "cancel the subscription",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-140",
+  "task": "intent",
+  "text": "I'm travelling for two months. Can I put my membership on hold and resume later without losing my data?",
+  "image": null,
+  "gold": "pause the subscription for a while",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-141",
+  "task": "intent",
+  "text": "Is it possible to freeze my plan over the summer and restart in September?",
+  "image": null,
+  "gold": "pause the subscription for a while",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-150",
+  "task": "intent",
+  "text": "The code SPRING20 from your newsletter says 'invalid' at checkout.",
+  "image": null,
+  "gold": "fix a promo code that is not accepted",
+  "near": [
+   "change the billing address",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-151",
+  "task": "intent",
+  "text": "Your discount coupon isn't applying to my cart even though it hasn't expired.",
+  "image": null,
+  "gold": "fix a promo code that is not accepted",
+  "near": [
+   "change the billing address",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-160",
+  "task": "intent",
+  "text": "My aunt gave me one of your gift cards. Where do I enter the number to use it?",
+  "image": null,
+  "gold": "redeem a gift card",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-161",
+  "task": "intent",
+  "text": "How do I add the balance of a gift card to my account?",
+  "image": null,
+  "gold": "redeem a gift card",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-170",
+  "task": "intent",
+  "text": "I ordered on Monday. Has it shipped yet? I don't have a tracking number.",
+  "image": null,
+  "gold": "check where an order is",
+  "near": [
+   "change the delivery address of an order",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-171",
+  "task": "intent",
+  "text": "Can you tell me the current status of order #55120?",
+  "image": null,
+  "gold": "check where an order is",
+  "near": [
+   "change the delivery address of an order",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-180",
+  "task": "intent",
+  "text": "Delivery was promised for last Friday and it's now Thursday. Still nothing. Very disappointed.",
+  "image": null,
+  "gold": "complain about a late delivery",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-181",
+  "task": "intent",
+  "text": "My parcel is a week past the guaranteed arrival date.",
+  "image": null,
+  "gold": "complain about a late delivery",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-190",
+  "task": "intent",
+  "text": "I just placed an order but used my old address. Can you send it to my new apartment instead?",
+  "image": null,
+  "gold": "change the delivery address of an order",
+  "near": [
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-191",
+  "task": "intent",
+  "text": "Please redirect order #8812 to my office address before it ships.",
+  "image": null,
+  "gold": "change the delivery address of an order",
+  "near": [
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-200",
+  "task": "intent",
+  "text": "The box arrived crushed and the glass vase inside was broken.",
+  "image": null,
+  "gold": "report an item damaged in shipping",
+  "near": [
+   "ask if a product is compatible",
+   "change the delivery address of an order",
+   "check where an order is",
+   "claim warranty for a product that stopped working",
+   "complain about a late delivery",
+   "connect a device to wifi",
+   "exchange an item for another size",
+   "get the user manual",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-201",
+  "task": "intent",
+  "text": "My new monitor came with a cracked screen, the packaging was torn open.",
+  "image": null,
+  "gold": "report an item damaged in shipping",
+  "near": [
+   "ask if a product is compatible",
+   "change the delivery address of an order",
+   "check where an order is",
+   "claim warranty for a product that stopped working",
+   "complain about a late delivery",
+   "connect a device to wifi",
+   "exchange an item for another size",
+   "get the user manual",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-210",
+  "task": "intent",
+  "text": "I ordered the blue backpack but you sent me a black suitcase.",
+  "image": null,
+  "gold": "report receiving the wrong item",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-211",
+  "task": "intent",
+  "text": "The package contained someone else's order, not the headphones I bought.",
+  "image": null,
+  "gold": "report receiving the wrong item",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-220",
+  "task": "intent",
+  "text": "The jacket doesn't suit me. How do I send it back and get my money back?",
+  "image": null,
+  "gold": "return an item for a refund",
+  "near": [
+   "change the billing address",
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "request tax exemption",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-221",
+  "task": "intent",
+  "text": "I'd like to return the unopened coffee machine for a full refund.",
+  "image": null,
+  "gold": "return an item for a refund",
+  "near": [
+   "change the billing address",
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "request tax exemption",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-230",
+  "task": "intent",
+  "text": "The shoes are too small. Can I swap them for a size 43?",
+  "image": null,
+  "gold": "exchange an item for another size",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-231",
+  "task": "intent",
+  "text": "Could I exchange this medium shirt for a large one?",
+  "image": null,
+  "gold": "exchange an item for another size",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-240",
+  "task": "intent",
+  "text": "My order should have had three books but only two were in the box.",
+  "image": null,
+  "gold": "report an item missing from the package",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-241",
+  "task": "intent",
+  "text": "The charger listed on the packing slip wasn't included with the laptop.",
+  "image": null,
+  "gold": "report an item missing from the package",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-250",
+  "task": "intent",
+  "text": "My blender, bought 8 months ago, suddenly won't turn on at all. Is this covered?",
+  "image": null,
+  "gold": "claim warranty for a product that stopped working",
+  "near": [
+   "ask if a product is compatible",
+   "connect a device to wifi",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-251",
+  "task": "intent",
+  "text": "The headphones stopped charging after five months of normal use. I'd like a repair or replacement.",
+  "image": null,
+  "gold": "claim warranty for a product that stopped working",
+  "near": [
+   "ask if a product is compatible",
+   "connect a device to wifi",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-260",
+  "task": "intent",
+  "text": "Will your USB-C dock work with a 2019 MacBook Air?",
+  "image": null,
+  "gold": "ask if a product is compatible",
+  "near": [
+   "claim warranty for a product that stopped working",
+   "connect a device to wifi",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-261",
+  "task": "intent",
+  "text": "Does this replacement filter fit the model X200 air purifier?",
+  "image": null,
+  "gold": "ask if a product is compatible",
+  "near": [
+   "claim warranty for a product that stopped working",
+   "connect a device to wifi",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-270",
+  "task": "intent",
+  "text": "I lost the instruction booklet for my rice cooker. Is there a PDF somewhere?",
+  "image": null,
+  "gold": "get the user manual",
+  "near": [
+   "ask if a product is compatible",
+   "claim warranty for a product that stopped working",
+   "connect a device to wifi",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-271",
+  "task": "intent",
+  "text": "Where can I find setup instructions for the model T5 thermostat?",
+  "image": null,
+  "gold": "get the user manual",
+  "near": [
+   "ask if a product is compatible",
+   "claim warranty for a product that stopped working",
+   "connect a device to wifi",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-280",
+  "task": "intent",
+  "text": "Since yesterday's update the Android app closes immediately every time I open it.",
+  "image": null,
+  "gold": "report the app crashing on start",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-281",
+  "task": "intent",
+  "text": "The iPhone app shows the logo for a second and then crashes back to the home screen.",
+  "image": null,
+  "gold": "report the app crashing on start",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-290",
+  "task": "intent",
+  "text": "Your dashboard takes almost a minute to load each page today. Everything works, just painfully slowly.",
+  "image": null,
+  "gold": "report the website being slow",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-291",
+  "task": "intent",
+  "text": "Pages on your site are really sluggish this week, searches take ages to return.",
+  "image": null,
+  "gold": "report the website being slow",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-300",
+  "task": "intent",
+  "text": "Your whole website returns 'service unavailable', nobody in our office can reach it.",
+  "image": null,
+  "gold": "report the website being completely down",
+  "near": [
+   "ask for API documentation",
+   "change the interface language",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix syncing between devices",
+   "fix webhooks that are not delivered",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-301",
+  "task": "intent",
+  "text": "The site won't load at all from any browser or network. Are you having an outage?",
+  "image": null,
+  "gold": "report the website being completely down",
+  "near": [
+   "ask for API documentation",
+   "change the interface language",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix syncing between devices",
+   "fix webhooks that are not delivered",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-310",
+  "task": "intent",
+  "text": "The 'Pricing' link in your footer leads to a 404 page.",
+  "image": null,
+  "gold": "report a broken link",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-311",
+  "task": "intent",
+  "text": "The download button on the help article points to a page that doesn't exist.",
+  "image": null,
+  "gold": "report a broken link",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-320",
+  "task": "intent",
+  "text": "It would be great if the calendar could export to Google Calendar. Please consider adding that.",
+  "image": null,
+  "gold": "suggest a new feature",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user"
+  ]
+ },
+ {
+  "id": "intent-321",
+  "task": "intent",
+  "text": "Could you add a dark mode to the desktop app? Many of us would love it.",
+  "image": null,
+  "gold": "suggest a new feature",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user"
+  ]
+ },
+ {
+  "id": "intent-330",
+  "task": "intent",
+  "text": "Just wanted to say your app made our team's planning so much easier. Great job!",
+  "image": null,
+  "gold": "praise the product",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-331",
+  "task": "intent",
+  "text": "Love the latest version, it's fast and beautiful. Thanks to everyone who built it.",
+  "image": null,
+  "gold": "praise the product",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-340",
+  "task": "intent",
+  "text": "The person I chatted with yesterday was rude and closed the chat without answering me.",
+  "image": null,
+  "gold": "complain about a support agent",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-341",
+  "task": "intent",
+  "text": "Your phone agent hung up on me twice and refused to give his name.",
+  "image": null,
+  "gold": "complain about a support agent",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-350",
+  "task": "intent",
+  "text": "Our integration keeps getting HTTP 429 'too many requests' from your API since we scaled up.",
+  "image": null,
+  "gold": "fix API rate limit errors",
+  "near": [
+   "ask for API documentation",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-351",
+  "task": "intent",
+  "text": "We hit your request quota within minutes and calls start failing. Can the limit be raised?",
+  "image": null,
+  "gold": "fix API rate limit errors",
+  "near": [
+   "ask for API documentation",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-360",
+  "task": "intent",
+  "text": "Every API call returns 401 'invalid API key' even though I just generated the key.",
+  "image": null,
+  "gold": "fix an API key that is rejected",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-361",
+  "task": "intent",
+  "text": "Our backend can't authenticate to your API anymore, the token is reported as unauthorized.",
+  "image": null,
+  "gold": "fix an API key that is rejected",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-370",
+  "task": "intent",
+  "text": "We stopped receiving your webhook notifications for new orders, our endpoint is up and reachable.",
+  "image": null,
+  "gold": "fix webhooks that are not delivered",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-371",
+  "task": "intent",
+  "text": "The order.created callbacks never arrive at our server anymore.",
+  "image": null,
+  "gold": "fix webhooks that are not delivered",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-380",
+  "task": "intent",
+  "text": "Where is the reference documentation for your REST API endpoints?",
+  "image": null,
+  "gold": "ask for API documentation",
+  "near": [
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-381",
+  "task": "intent",
+  "text": "Do you have docs or an OpenAPI spec for the developer API?",
+  "image": null,
+  "gold": "ask for API documentation",
+  "near": [
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-390",
+  "task": "intent",
+  "text": "I'd like to download all my projects and files as an archive.",
+  "image": null,
+  "gold": "export a copy of my data",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-391",
+  "task": "intent",
+  "text": "Is there a way to export everything in my workspace to a zip file?",
+  "image": null,
+  "gold": "export a copy of my data",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-400",
+  "task": "intent",
+  "text": "For compliance we need to know which country your servers storing our data are located in.",
+  "image": null,
+  "gold": "ask where data is stored",
+  "near": [
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-401",
+  "task": "intent",
+  "text": "Is customer data hosted in the EU or in the US?",
+  "image": null,
+  "gold": "ask where data is stored",
+  "near": [
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-410",
+  "task": "intent",
+  "text": "Please stop sending me promotional newsletters, I only want receipts.",
+  "image": null,
+  "gold": "stop marketing emails",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability"
+  ]
+ },
+ {
+  "id": "intent-411",
+  "task": "intent",
+  "text": "How do I unsubscribe from your marketing mailing list?",
+  "image": null,
+  "gold": "stop marketing emails",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability"
+  ]
+ },
+ {
+  "id": "intent-420",
+  "task": "intent",
+  "text": "The app is showing everything in French. How do I switch it back to English?",
+  "image": null,
+  "gold": "change the interface language",
+  "near": [
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-421",
+  "task": "intent",
+  "text": "Can I set the dashboard language to Japanese?",
+  "image": null,
+  "gold": "change the interface language",
+  "near": [
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-430",
+  "task": "intent",
+  "text": "I want to invite my new colleague to our workspace so she can edit documents.",
+  "image": null,
+  "gold": "add a team member",
+  "near": [
+   "remove a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-431",
+  "task": "intent",
+  "text": "How do I give a new employee access to our team account?",
+  "image": null,
+  "gold": "add a team member",
+  "near": [
+   "remove a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-440",
+  "task": "intent",
+  "text": "An employee left the company. Please take away his access to our workspace.",
+  "image": null,
+  "gold": "remove a team member",
+  "near": [
+   "add a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-441",
+  "task": "intent",
+  "text": "How do I kick a former contractor out of our team account?",
+  "image": null,
+  "gold": "remove a team member",
+  "near": [
+   "add a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-450",
+  "task": "intent",
+  "text": "I'm stepping down as admin. The account should belong to my coworker from now on.",
+  "image": null,
+  "gold": "transfer account ownership",
+  "near": [
+   "add a team member",
+   "change the account email address",
+   "close and delete the account",
+   "remove a team member",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-451",
+  "task": "intent",
+  "text": "We need to hand over ownership of the organization account to our new CTO.",
+  "image": null,
+  "gold": "transfer account ownership",
+  "near": [
+   "add a team member",
+   "change the account email address",
+   "close and delete the account",
+   "remove a team member",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-460",
+  "task": "intent",
+  "text": "We're a registered non-profit. Can you stop charging us sales tax? I can send our certificate.",
+  "image": null,
+  "gold": "request tax exemption",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-461",
+  "task": "intent",
+  "text": "Our school is tax-exempt, please remove VAT from future invoices.",
+  "image": null,
+  "gold": "request tax exemption",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-470",
+  "task": "intent",
+  "text": "Is there a number I can call to talk to a human?",
+  "image": null,
+  "gold": "get a phone number for support",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-471",
+  "task": "intent",
+  "text": "I prefer speaking on the phone. What's your support hotline?",
+  "image": null,
+  "gold": "get a phone number for support",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-480",
+  "task": "intent",
+  "text": "We're evaluating tools for our 200-person company. Could someone walk us through the product in a live session?",
+  "image": null,
+  "gold": "book a product demo",
+  "near": [
+   "ask about a student discount",
+   "ask about business hours",
+   "ask for a bulk order quote",
+   "cancel the subscription",
+   "complain about a support agent",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "get a phone number for support",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-481",
+  "task": "intent",
+  "text": "I'd like to schedule a demo call with your sales team next week.",
+  "image": null,
+  "gold": "book a product demo",
+  "near": [
+   "ask about a student discount",
+   "ask about business hours",
+   "ask for a bulk order quote",
+   "cancel the subscription",
+   "complain about a support agent",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "get a phone number for support",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-490",
+  "task": "intent",
+  "text": "I'm a university student. Do you offer reduced pricing for students?",
+  "image": null,
+  "gold": "ask about a student discount",
+  "near": [
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-491",
+  "task": "intent",
+  "text": "Is there an academic discount if I verify with my .edu email?",
+  "image": null,
+  "gold": "ask about a student discount",
+  "near": [
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-500",
+  "task": "intent",
+  "text": "I'm blind and use VoiceOver. The checkout buttons on your site aren't announced at all.",
+  "image": null,
+  "gold": "report a screen reader problem",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-501",
+  "task": "intent",
+  "text": "Your forms can't be used with a screen reader, the fields have no labels.",
+  "image": null,
+  "gold": "report a screen reader problem",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-510",
+  "task": "intent",
+  "text": "In the Spanish version, the 'Save' button is translated as 'Rescue'.",
+  "image": null,
+  "gold": "report a wrong translation",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-511",
+  "task": "intent",
+  "text": "The German text on the settings page is mistranslated and makes no sense.",
+  "image": null,
+  "gold": "report a wrong translation",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-520",
+  "task": "intent",
+  "text": "We'd like to buy 500 units for our offices. Can you give us a volume price?",
+  "image": null,
+  "gold": "ask for a bulk order quote",
+  "near": [
+   "ask about a student discount",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-521",
+  "task": "intent",
+  "text": "What discount do you offer if we order 1,000 licenses at once?",
+  "image": null,
+  "gold": "ask for a bulk order quote",
+  "near": [
+   "ask about a student discount",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-530",
+  "task": "intent",
+  "text": "I'm a security researcher and found an XSS flaw on your login page. How can I disclose it responsibly?",
+  "image": null,
+  "gold": "report a security vulnerability",
+  "near": [
+   "ask where data is stored",
+   "change the account email address",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a login by someone else",
+   "reset a forgotten password",
+   "stop marketing emails",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-531",
+  "task": "intent",
+  "text": "Your password reset endpoint leaks user emails. I'd like to report this privately.",
+  "image": null,
+  "gold": "report a security vulnerability",
+  "near": [
+   "ask where data is stored",
+   "change the account email address",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a login by someone else",
+   "reset a forgotten password",
+   "stop marketing emails",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-540",
+  "task": "intent",
+  "text": "I accidentally deleted an important spreadsheet yesterday. Can it be restored?",
+  "image": null,
+  "gold": "recover a deleted file",
+  "near": [
+   "ask where data is stored",
+   "change the interface language",
+   "close and delete the account",
+   "export a copy of my data",
+   "fix syncing between devices",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a security vulnerability",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-541",
+  "task": "intent",
+  "text": "Is there a trash or backup where I can get back a folder I removed by mistake?",
+  "image": null,
+  "gold": "recover a deleted file",
+  "near": [
+   "ask where data is stored",
+   "change the interface language",
+   "close and delete the account",
+   "export a copy of my data",
+   "fix syncing between devices",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a security vulnerability",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-550",
+  "task": "intent",
+  "text": "We're at 98% of our storage quota. How do we get more space?",
+  "image": null,
+  "gold": "increase the storage limit",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-551",
+  "task": "intent",
+  "text": "Can I buy extra storage without changing my whole plan?",
+  "image": null,
+  "gold": "increase the storage limit",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-560",
+  "task": "intent",
+  "text": "Notes I write on my phone don't show up on my laptop anymore.",
+  "image": null,
+  "gold": "fix syncing between devices",
+  "near": [
+   "change the interface language",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-561",
+  "task": "intent",
+  "text": "Changes made on the desktop app never appear on my tablet.",
+  "image": null,
+  "gold": "fix syncing between devices",
+  "near": [
+   "change the interface language",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-570",
+  "task": "intent",
+  "text": "The smart plug won't join my home network, the light just keeps blinking.",
+  "image": null,
+  "gold": "connect a device to wifi",
+  "near": [
+   "ask if a product is compatible",
+   "claim warranty for a product that stopped working",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-571",
+  "task": "intent",
+  "text": "How do I get the camera onto my wireless network? Setup fails at the network step.",
+  "image": null,
+  "gold": "connect a device to wifi",
+  "near": [
+   "ask if a product is compatible",
+   "claim warranty for a product that stopped working",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-580",
+  "task": "intent",
+  "text": "A user keeps sending me threatening messages through your platform.",
+  "image": null,
+  "gold": "report a spammer or abusive user",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-581",
+  "task": "intent",
+  "text": "Someone is posting scam links in every community thread. Please ban them.",
+  "image": null,
+  "gold": "report a spammer or abusive user",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-590",
+  "task": "intent",
+  "text": "What time does your support team open on Saturdays?",
+  "image": null,
+  "gold": "ask about business hours",
+  "near": [
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-591",
+  "task": "intent",
+  "text": "Are you available on public holidays, and until what time on weekdays?",
+  "image": null,
+  "gold": "ask about business hours",
+  "near": [
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-ja-00",
+  "task": "intent",
+  "text": "パスワードを忘れてしまいました。再設定の方法を教えてください。",
+  "image": null,
+  "gold": "reset a forgotten password",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-ja-01",
+  "task": "intent",
+  "text": "登録しているメールアドレスを、会社のものから個人のものに変えたいです。",
+  "image": null,
+  "gold": "change the account email address",
+  "near": [
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-ja-02",
+  "task": "intent",
+  "text": "ログインのときに認証アプリのコードも求めるようにしたいのですが、どこで設定できますか？",
+  "image": null,
+  "gold": "turn on two-factor authentication",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-ja-03",
+  "task": "intent",
+  "text": "同じ注文で二回引き落とされています。一回分を返金してください。",
+  "image": null,
+  "gold": "refund a duplicate charge",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-ja-04",
+  "task": "intent",
+  "text": "経理に出すので、先月分の請求書をもう一度送ってもらえますか。",
+  "image": null,
+  "gold": "send a copy of an invoice",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-ja-05",
+  "task": "intent",
+  "text": "来月からはもう使わないので、月額プランを解約したいです。",
+  "image": null,
+  "gold": "cancel the subscription",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-ja-06",
+  "task": "intent",
+  "text": "三か月ほど海外出張なので、その間だけ契約を止めておけますか？データは残したいです。",
+  "image": null,
+  "gold": "pause the subscription for a while",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-ja-07",
+  "task": "intent",
+  "text": "月曜に注文した商品はもう発送されましたか？追跡番号が届いていません。",
+  "image": null,
+  "gold": "check where an order is",
+  "near": [
+   "change the delivery address of an order",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-ja-08",
+  "task": "intent",
+  "text": "届いた箱がつぶれていて、中のグラスが割れていました。",
+  "image": null,
+  "gold": "report an item damaged in shipping",
+  "near": [
+   "ask if a product is compatible",
+   "change the delivery address of an order",
+   "check where an order is",
+   "claim warranty for a product that stopped working",
+   "complain about a late delivery",
+   "connect a device to wifi",
+   "exchange an item for another size",
+   "get the user manual",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-ja-09",
+  "task": "intent",
+  "text": "黒のスニーカーを注文したのに、白いサンダルが届きました。",
+  "image": null,
+  "gold": "report receiving the wrong item",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-ja-10",
+  "task": "intent",
+  "text": "シャツが小さかったので、Lサイズと交換してもらえますか。",
+  "image": null,
+  "gold": "exchange an item for another size",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-ja-11",
+  "task": "intent",
+  "text": "半年前に買った電気ケトルが急に電源が入らなくなりました。保証で修理できますか。",
+  "image": null,
+  "gold": "claim warranty for a product that stopped working",
+  "near": [
+   "ask if a product is compatible",
+   "connect a device to wifi",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-ja-12",
+  "task": "intent",
+  "text": "アップデートしてから、アプリを開くとすぐ落ちてしまいます。",
+  "image": null,
+  "gold": "report the app crashing on start",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-ja-13",
+  "task": "intent",
+  "text": "サイトにまったくつながりません。社内の誰もアクセスできない状態です。",
+  "image": null,
+  "gold": "report the website being completely down",
+  "near": [
+   "ask for API documentation",
+   "change the interface language",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix syncing between devices",
+   "fix webhooks that are not delivered",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-ja-14",
+  "task": "intent",
+  "text": "APIを呼ぶと429エラーが頻発します。上限を引き上げてもらえませんか。",
+  "image": null,
+  "gold": "fix API rate limit errors",
+  "near": [
+   "ask for API documentation",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-ja-15",
+  "task": "intent",
+  "text": "新規注文のWebhook通知がうちのサーバーに届かなくなりました。サーバー側は正常です。",
+  "image": null,
+  "gold": "fix webhooks that are not delivered",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-ja-16",
+  "task": "intent",
+  "text": "これまでのプロジェクトをすべてzipでダウンロードしたいです。",
+  "image": null,
+  "gold": "export a copy of my data",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-ja-17",
+  "task": "intent",
+  "text": "キャンペーンのお知らせメールはもう送らないでください。",
+  "image": null,
+  "gold": "stop marketing emails",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability"
+  ]
+ },
+ {
+  "id": "intent-ja-18",
+  "task": "intent",
+  "text": "画面が全部英語になってしまいました。日本語表示に戻すにはどうすればいいですか。",
+  "image": null,
+  "gold": "change the interface language",
+  "near": [
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-ja-19",
+  "task": "intent",
+  "text": "新しく入った同僚をワークスペースに招待したいです。",
+  "image": null,
+  "gold": "add a team member",
+  "near": [
+   "remove a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-ja-20",
+  "task": "intent",
+  "text": "退職した社員がまだワークスペースに入れるので、権限を外してください。",
+  "image": null,
+  "gold": "remove a team member",
+  "near": [
+   "add a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-ja-21",
+  "task": "intent",
+  "text": "電話で直接相談したいのですが、サポートの電話番号はありますか。",
+  "image": null,
+  "gold": "get a phone number for support",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-ja-22",
+  "task": "intent",
+  "text": "大学生なのですが、学割はありますか？",
+  "image": null,
+  "gold": "ask about a student discount",
+  "near": [
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-ja-23",
+  "task": "intent",
+  "text": "昨日うっかり大事な資料を削除してしまいました。元に戻せますか。",
+  "image": null,
+  "gold": "recover a deleted file",
+  "near": [
+   "ask where data is stored",
+   "change the interface language",
+   "close and delete the account",
+   "export a copy of my data",
+   "fix syncing between devices",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a security vulnerability",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-ja-24",
+  "task": "intent",
+  "text": "容量がほぼいっぱいです。プランはそのままで容量だけ増やせますか。",
+  "image": null,
+  "gold": "increase the storage limit",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-ja-25",
+  "task": "intent",
+  "text": "スマホで書いたメモがパソコンに反映されません。",
+  "image": null,
+  "gold": "fix syncing between devices",
+  "near": [
+   "change the interface language",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-ja-26",
+  "task": "intent",
+  "text": "コミュニティで詐欺サイトのリンクを貼りまくっている人がいます。対処してください。",
+  "image": null,
+  "gold": "report a spammer or abusive user",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-ja-27",
+  "task": "intent",
+  "text": "セキュリティ研究者です。ログイン画面に脆弱性を見つけたので、非公開で報告したいです。",
+  "image": null,
+  "gold": "report a security vulnerability",
+  "near": [
+   "ask where data is stored",
+   "change the account email address",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a login by someone else",
+   "reset a forgotten password",
+   "stop marketing emails",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-ja-28",
+  "task": "intent",
+  "text": "パスワードを何度か間違えたらアカウントがロックされました。今日中に使いたいので解除してください。",
+  "image": null,
+  "gold": "unlock an account locked after failed logins",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication"
+  ]
+ },
+ {
+  "id": "intent-ja-29",
+  "task": "intent",
+  "text": "到着予定日を1週間過ぎても荷物が届きません。いい加減にしてほしいです。",
+  "image": null,
+  "gold": "complain about a late delivery",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-tricky-00",
+  "task": "intent",
+  "text": "Loving the app so far! Quick thing though: my teammate Jen just joined and I can't figure out how to get her into our workspace.",
+  "image": null,
+  "gold": "add a team member",
+  "near": [
+   "remove a team member",
+   "transfer account ownership"
+  ]
+ },
+ {
+  "id": "intent-tricky-01",
+  "task": "intent",
+  "text": "Not complaining about the price at all, but we've stopped using half the features, so a smaller plan would make more sense for us.",
+  "image": null,
+  "gold": "downgrade to a cheaper plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-tricky-02",
+  "task": "intent",
+  "text": "The password is fine, I know it. It just says I've been locked out for too many tries.",
+  "image": null,
+  "gold": "unlock an account locked after failed logins",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication"
+  ]
+ },
+ {
+  "id": "intent-tricky-03",
+  "task": "intent",
+  "text": "Order #4410 arrived on time, thanks. Unfortunately it's a size too big. Can I get the next size down instead?",
+  "image": null,
+  "gold": "exchange an item for another size",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-tricky-04",
+  "task": "intent",
+  "text": "I'm not asking for a refund, I just need a copy of the July invoice for our records.",
+  "image": null,
+  "gold": "send a copy of an invoice",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-tricky-05",
+  "task": "intent",
+  "text": "Your webhooks work great. Your API docs, on the other hand: where are they? I can't find the endpoint reference anywhere.",
+  "image": null,
+  "gold": "ask for API documentation",
+  "near": [
+   "fix API rate limit errors",
+   "fix an API key that is rejected",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-tricky-06",
+  "task": "intent",
+  "text": "We are fine with being charged, but we're a registered charity and shouldn't be paying sales tax on it.",
+  "image": null,
+  "gold": "request tax exemption",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-tricky-07",
+  "task": "intent",
+  "text": "Before deciding whether to renew, I'd like to compare what each tier would cost us per month.",
+  "image": null,
+  "gold": "explain the price of each plan",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-tricky-08",
+  "task": "intent",
+  "text": "It's not that the site is down. It loads, it just takes forever on every click.",
+  "image": null,
+  "gold": "report the website being slow",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-tricky-09",
+  "task": "intent",
+  "text": "My phone and laptop show different versions of the same document; edits from one never reach the other.",
+  "image": null,
+  "gold": "fix syncing between devices",
+  "near": [
+   "change the interface language",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-tricky-10",
+  "task": "intent",
+  "text": "Someone in your support chat was incredibly dismissive yesterday. I want this escalated to a manager.",
+  "image": null,
+  "gold": "complain about a support agent",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-tricky-11",
+  "task": "intent",
+  "text": "I don't want to cancel, just stop billing me for June and July while I'm away, then pick up again in August.",
+  "image": null,
+  "gold": "pause the subscription for a while",
+  "near": [
+   "ask about a student discount",
+   "ask for a bulk order quote",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-tricky-12",
+  "task": "intent",
+  "text": "The app doesn't crash, but every time I open it, it's in Portuguese, which I don't speak.",
+  "image": null,
+  "gold": "change the interface language",
+  "near": [
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-tricky-13",
+  "task": "intent",
+  "text": "We have 300 laptops to equip with your software. What price can you do for that many seats?",
+  "image": null,
+  "gold": "ask for a bulk order quote",
+  "near": [
+   "ask about a student discount",
+   "book a product demo",
+   "cancel the subscription",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-tricky-14",
+  "task": "intent",
+  "text": "This isn't a feature request: your checkout page cannot be operated with a screen reader at all, and our blind employees are stuck.",
+  "image": null,
+  "gold": "report a screen reader problem",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a wrong translation",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-tricky-15",
+  "task": "intent",
+  "text": "Got a text saying my account was accessed from a new device in Ukraine. I've never been there.",
+  "image": null,
+  "gold": "report a login by someone else",
+  "near": [
+   "change the account email address",
+   "close and delete the account",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "transfer account ownership",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-tricky-16",
+  "task": "intent",
+  "text": "Tracking says delivered, but the box only had the camera. The lens that was part of the bundle is not there.",
+  "image": null,
+  "gold": "report an item missing from the package",
+  "near": [
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-tricky-17",
+  "task": "intent",
+  "text": "Your newsletter is nice, but I really only want receipts in my inbox, nothing else.",
+  "image": null,
+  "gold": "stop marketing emails",
+  "near": [
+   "ask where data is stored",
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability"
+  ]
+ },
+ {
+  "id": "intent-tricky-18",
+  "task": "intent",
+  "text": "Not sure who to ask: our auditor needs to know whether our files sit on servers in Germany or somewhere else.",
+  "image": null,
+  "gold": "ask where data is stored",
+  "near": [
+   "close and delete the account",
+   "export a copy of my data",
+   "recover a deleted file",
+   "report a security vulnerability",
+   "stop marketing emails"
+  ]
+ },
+ {
+  "id": "intent-tricky-19",
+  "task": "intent",
+  "text": "Can you hand the admin role and the account itself over to Priya? I'm leaving the company next week.",
+  "image": null,
+  "gold": "transfer account ownership",
+  "near": [
+   "add a team member",
+   "change the account email address",
+   "close and delete the account",
+   "remove a team member",
+   "report a login by someone else",
+   "report a security vulnerability",
+   "reset a forgotten password",
+   "turn on two-factor authentication",
+   "unlock an account locked after failed logins"
+  ]
+ },
+ {
+  "id": "intent-tricky-20",
+  "task": "intent",
+  "text": "Our integration started failing with 'unauthorized' right after we rotated keys, even though the new key is copied correctly.",
+  "image": null,
+  "gold": "fix an API key that is rejected",
+  "near": [
+   "ask for API documentation",
+   "fix API rate limit errors",
+   "fix webhooks that are not delivered",
+   "report the website being completely down"
+  ]
+ },
+ {
+  "id": "intent-tricky-21",
+  "task": "intent",
+  "text": "The speaker works fine over Bluetooth, but I can't get it onto the home Wi-Fi network.",
+  "image": null,
+  "gold": "connect a device to wifi",
+  "near": [
+   "ask if a product is compatible",
+   "claim warranty for a product that stopped working",
+   "get the user manual",
+   "report an item damaged in shipping"
+  ]
+ },
+ {
+  "id": "intent-tricky-22",
+  "task": "intent",
+  "text": "My card number changed after the bank replaced it. Please charge the new one from now on.",
+  "image": null,
+  "gold": "update the saved payment card",
+  "near": [
+   "change the billing address",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice"
+  ]
+ },
+ {
+  "id": "intent-tricky-23",
+  "task": "intent",
+  "text": "I'd love to see what your product does before we commit. Could your team show it to us on a call?",
+  "image": null,
+  "gold": "book a product demo",
+  "near": [
+   "ask about a student discount",
+   "ask about business hours",
+   "ask for a bulk order quote",
+   "cancel the subscription",
+   "complain about a support agent",
+   "downgrade to a cheaper plan",
+   "explain the price of each plan",
+   "get a phone number for support",
+   "increase the storage limit",
+   "pause the subscription for a while",
+   "praise the product",
+   "report a spammer or abusive user",
+   "suggest a new feature",
+   "upgrade to a higher plan"
+  ]
+ },
+ {
+  "id": "intent-tricky-24",
+  "task": "intent",
+  "text": "I wasn't charged twice, but the total I paid is wrong because SAVE10 was ignored at checkout.",
+  "image": null,
+  "gold": "fix a promo code that is not accepted",
+  "near": [
+   "change the billing address",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "request tax exemption",
+   "return an item for a refund",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-tricky-25",
+  "task": "intent",
+  "text": "The headphones are not broken, I just don't like them. How do I send them back and get my money?",
+  "image": null,
+  "gold": "return an item for a refund",
+  "near": [
+   "change the billing address",
+   "change the delivery address of an order",
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "fix a promo code that is not accepted",
+   "redeem a gift card",
+   "refund a duplicate charge",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "request tax exemption",
+   "send a copy of an invoice",
+   "update the saved payment card"
+  ]
+ },
+ {
+  "id": "intent-tricky-26",
+  "task": "intent",
+  "text": "I moved to Osaka last month. The parcel I ordered an hour ago still shows my Tokyo address. Can it go to the new place?",
+  "image": null,
+  "gold": "change the delivery address of an order",
+  "near": [
+   "check where an order is",
+   "complain about a late delivery",
+   "exchange an item for another size",
+   "report an item damaged in shipping",
+   "report an item missing from the package",
+   "report receiving the wrong item",
+   "return an item for a refund"
+  ]
+ },
+ {
+  "id": "intent-tricky-27",
+  "task": "intent",
+  "text": "The French page translates 'Sign out' as 'Sign up', which confused our customers.",
+  "image": null,
+  "gold": "report a wrong translation",
+  "near": [
+   "change the interface language",
+   "fix syncing between devices",
+   "recover a deleted file",
+   "report a broken link",
+   "report a screen reader problem",
+   "report the app crashing on start",
+   "report the website being completely down",
+   "report the website being slow"
+  ]
+ },
+ {
+  "id": "intent-tricky-28",
+  "task": "intent",
+  "text": "Everything about your service is fantastic, and I mean it. Thank you, team!",
+  "image": null,
+  "gold": "praise the product",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "report a spammer or abusive user",
+   "suggest a new feature"
+  ]
+ },
+ {
+  "id": "intent-tricky-29",
+  "task": "intent",
+  "text": "Not a bug report exactly: it would be really handy if exports could also be in CSV, not just PDF.",
+  "image": null,
+  "gold": "suggest a new feature",
+  "near": [
+   "ask about business hours",
+   "book a product demo",
+   "complain about a support agent",
+   "get a phone number for support",
+   "praise the product",
+   "report a spammer or abusive user"
+  ]
+ },
+ {
+  "id": "shape-00",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-00.png",
+  "gold": "a yellow circle"
+ },
+ {
+  "id": "shape-01",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-01.png",
+  "gold": "a blue square"
+ },
+ {
+  "id": "shape-02",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-02.png",
+  "gold": "a red circle"
+ },
+ {
+  "id": "shape-03",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-03.png",
+  "gold": "a gray triangle"
+ },
+ {
+  "id": "shape-04",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-04.png",
+  "gold": "a gray star"
+ },
+ {
+  "id": "shape-05",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-05.png",
+  "gold": "a gray circle"
+ },
+ {
+  "id": "shape-06",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-06.png",
+  "gold": "a blue cross"
+ },
+ {
+  "id": "shape-07",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-07.png",
+  "gold": "a green star"
+ },
+ {
+  "id": "shape-08",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-08.png",
+  "gold": "a blue circle"
+ },
+ {
+  "id": "shape-09",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-09.png",
+  "gold": "a black cross"
+ },
+ {
+  "id": "shape-10",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-10.png",
+  "gold": "a orange square"
+ },
+ {
+  "id": "shape-11",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-11.png",
+  "gold": "a red square"
+ },
+ {
+  "id": "shape-12",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-12.png",
+  "gold": "a yellow square"
+ },
+ {
+  "id": "shape-13",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-13.png",
+  "gold": "a orange hexagon"
+ },
+ {
+  "id": "shape-14",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-14.png",
+  "gold": "a yellow triangle"
+ },
+ {
+  "id": "shape-15",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-15.png",
+  "gold": "a purple square"
+ },
+ {
+  "id": "shape-16",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-16.png",
+  "gold": "a green cross"
+ },
+ {
+  "id": "shape-17",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-17.png",
+  "gold": "a red cross"
+ },
+ {
+  "id": "shape-18",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-18.png",
+  "gold": "a gray hexagon"
+ },
+ {
+  "id": "shape-19",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-19.png",
+  "gold": "a orange star"
+ },
+ {
+  "id": "shape-20",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-20.png",
+  "gold": "a gray cross"
+ },
+ {
+  "id": "shape-21",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-21.png",
+  "gold": "a black circle"
+ },
+ {
+  "id": "shape-22",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-22.png",
+  "gold": "a yellow hexagon"
+ },
+ {
+  "id": "shape-23",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-23.png",
+  "gold": "a purple cross"
+ },
+ {
+  "id": "shape-24",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-24.png",
+  "gold": "a green hexagon"
+ },
+ {
+  "id": "shape-25",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-25.png",
+  "gold": "a black triangle"
+ },
+ {
+  "id": "shape-26",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-26.png",
+  "gold": "a purple star"
+ },
+ {
+  "id": "shape-27",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-27.png",
+  "gold": "a orange circle"
+ },
+ {
+  "id": "shape-28",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-28.png",
+  "gold": "a blue hexagon"
+ },
+ {
+  "id": "shape-29",
+  "task": "shape",
+  "text": "Here is a picture.",
+  "image": "images/shape-29.png",
+  "gold": "a orange triangle"
+ },
+ {
+  "id": "count-00",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-00.png",
+  "gold": "1 dot"
+ },
+ {
+  "id": "count-01",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-01.png",
+  "gold": "2 dots"
+ },
+ {
+  "id": "count-02",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-02.png",
+  "gold": "3 dots"
+ },
+ {
+  "id": "count-03",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-03.png",
+  "gold": "4 dots"
+ },
+ {
+  "id": "count-04",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-04.png",
+  "gold": "5 dots"
+ },
+ {
+  "id": "count-05",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-05.png",
+  "gold": "6 dots"
+ },
+ {
+  "id": "count-06",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-06.png",
+  "gold": "7 dots"
+ },
+ {
+  "id": "count-07",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-07.png",
+  "gold": "8 dots"
+ },
+ {
+  "id": "count-08",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-08.png",
+  "gold": "9 dots"
+ },
+ {
+  "id": "count-09",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-09.png",
+  "gold": "10 dots"
+ },
+ {
+  "id": "count-10",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-10.png",
+  "gold": "11 dots"
+ },
+ {
+  "id": "count-11",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-11.png",
+  "gold": "12 dots"
+ },
+ {
+  "id": "count-12",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-12.png",
+  "gold": "13 dots"
+ },
+ {
+  "id": "count-13",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-13.png",
+  "gold": "14 dots"
+ },
+ {
+  "id": "count-14",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-14.png",
+  "gold": "15 dots"
+ },
+ {
+  "id": "count-15",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-15.png",
+  "gold": "11 dots"
+ },
+ {
+  "id": "count-16",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-16.png",
+  "gold": "10 dots"
+ },
+ {
+  "id": "count-17",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-17.png",
+  "gold": "2 dots"
+ },
+ {
+  "id": "count-18",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-18.png",
+  "gold": "4 dots"
+ },
+ {
+  "id": "count-19",
+  "task": "count",
+  "text": "Here is a picture with some dots.",
+  "image": "images/count-19.png",
+  "gold": "15 dots"
+ },
+ {
+  "id": "word-00",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-00.png",
+  "gold": "TICKET"
+ },
+ {
+  "id": "word-01",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-01.png",
+  "gold": "GUITAR"
+ },
+ {
+  "id": "word-02",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-02.png",
+  "gold": "FOREST"
+ },
+ {
+  "id": "word-03",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-03.png",
+  "gold": "OCEAN"
+ },
+ {
+  "id": "word-04",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-04.png",
+  "gold": "NEEDLE"
+ },
+ {
+  "id": "word-05",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-05.png",
+  "gold": "PENCIL"
+ },
+ {
+  "id": "word-06",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-06.png",
+  "gold": "DRAGON"
+ },
+ {
+  "id": "word-07",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-07.png",
+  "gold": "CARPET"
+ },
+ {
+  "id": "word-08",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-08.png",
+  "gold": "SADDLE"
+ },
+ {
+  "id": "word-09",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-09.png",
+  "gold": "KETTLE"
+ },
+ {
+  "id": "word-10",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-10.png",
+  "gold": "LADDER"
+ },
+ {
+  "id": "word-11",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-11.png",
+  "gold": "HARBOR"
+ },
+ {
+  "id": "word-12",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-12.png",
+  "gold": "SILVER"
+ },
+ {
+  "id": "word-13",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-13.png",
+  "gold": "CASTLE"
+ },
+ {
+  "id": "word-14",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-14.png",
+  "gold": "WALLET"
+ },
+ {
+  "id": "word-15",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-15.png",
+  "gold": "WINTER"
+ },
+ {
+  "id": "word-16",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-16.png",
+  "gold": "APPLE"
+ },
+ {
+  "id": "word-17",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-17.png",
+  "gold": "TOMATO"
+ },
+ {
+  "id": "word-18",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-18.png",
+  "gold": "TUNNEL"
+ },
+ {
+  "id": "word-19",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-19.png",
+  "gold": "TABLE"
+ },
+ {
+  "id": "word-20",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-20.png",
+  "gold": "RABBIT"
+ },
+ {
+  "id": "word-21",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-21.png",
+  "gold": "ZEBRA"
+ },
+ {
+  "id": "word-22",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-22.png",
+  "gold": "LIZARD"
+ },
+ {
+  "id": "word-23",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-23.png",
+  "gold": "MIRROR"
+ },
+ {
+  "id": "word-24",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-24.png",
+  "gold": "PARROT"
+ },
+ {
+  "id": "word-25",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-25.png",
+  "gold": "BRIDGE"
+ },
+ {
+  "id": "word-26",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-26.png",
+  "gold": "EAGLE"
+ },
+ {
+  "id": "word-27",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-27.png",
+  "gold": "SPIDER"
+ },
+ {
+  "id": "word-28",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-28.png",
+  "gold": "FLOWER"
+ },
+ {
+  "id": "word-29",
+  "task": "word",
+  "text": "Here is a photo of a sign.",
+  "image": "images/word-29.png",
+  "gold": "JUNGLE"
+ },
+ {
+  "id": "error-00",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-00.png",
+  "gold": "the item is out of stock"
+ },
+ {
+  "id": "error-01",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-01.png",
+  "gold": "the request timed out"
+ },
+ {
+  "id": "error-02",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-02.png",
+  "gold": "the software license has expired"
+ },
+ {
+  "id": "error-03",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-03.png",
+  "gold": "the page was not found"
+ },
+ {
+  "id": "error-04",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-04.png",
+  "gold": "the meeting link is invalid"
+ },
+ {
+  "id": "error-05",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-05.png",
+  "gold": "the backup failed"
+ },
+ {
+  "id": "error-06",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-06.png",
+  "gold": "the account is suspended"
+ },
+ {
+  "id": "error-07",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-07.png",
+  "gold": "the browser is not supported"
+ },
+ {
+  "id": "error-08",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-08.png",
+  "gold": "too many login attempts were made"
+ },
+ {
+  "id": "error-09",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-09.png",
+  "gold": "the verification code is wrong"
+ },
+ {
+  "id": "error-10",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-10.png",
+  "gold": "the download was blocked as unsafe"
+ },
+ {
+  "id": "error-11",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-11.png",
+  "gold": "the device storage is full"
+ },
+ {
+  "id": "error-12",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-12.png",
+  "gold": "access to the folder is denied"
+ },
+ {
+  "id": "error-13",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-13.png",
+  "gold": "the app must be updated"
+ },
+ {
+  "id": "error-14",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-14.png",
+  "gold": "the battery is almost empty"
+ },
+ {
+  "id": "error-15",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-15.png",
+  "gold": "the payment card was declined"
+ },
+ {
+  "id": "error-16",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-16.png",
+  "gold": "the address could not be verified"
+ },
+ {
+  "id": "error-17",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-17.png",
+  "gold": "the file format is not supported"
+ },
+ {
+  "id": "error-18",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-18.png",
+  "gold": "the coupon has expired"
+ },
+ {
+  "id": "error-19",
+  "task": "error",
+  "text": "This message keeps popping up on my screen. What is wrong?",
+  "image": "images/error-19.png",
+  "gold": "the database connection failed"
+ },
+ {
+  "id": "scene-00",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-00.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a black cross",
+  "near": [
+   "a blue circle",
+   "a blue triangle",
+   "a orange star"
+  ]
+ },
+ {
+  "id": "scene-01",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-01.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a blue star",
+  "near": [
+   "a gray star",
+   "a blue hexagon",
+   "a orange circle"
+  ]
+ },
+ {
+  "id": "scene-02",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-02.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a red star",
+  "near": [
+   "a green cross",
+   "a red cross",
+   "a orange triangle"
+  ]
+ },
+ {
+  "id": "scene-03",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-03.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a green circle",
+  "near": [
+   "a purple square",
+   "a gray star",
+   "a blue star"
+  ]
+ },
+ {
+  "id": "scene-04",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-04.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a gray hexagon",
+  "near": [
+   "a purple circle",
+   "a orange hexagon",
+   "a green circle"
+  ]
+ },
+ {
+  "id": "scene-05",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-05.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a orange cross",
+  "near": [
+   "a red circle",
+   "a black square",
+   "a purple cross"
+  ]
+ },
+ {
+  "id": "scene-06",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-06.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a yellow hexagon",
+  "near": [
+   "a black circle",
+   "a orange triangle",
+   "a yellow star"
+  ]
+ },
+ {
+  "id": "scene-07",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-07.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a yellow hexagon",
+  "near": [
+   "a blue square",
+   "a green square",
+   "a black star"
+  ]
+ },
+ {
+  "id": "scene-08",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-08.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a black hexagon",
+  "near": [
+   "a green circle",
+   "a blue hexagon",
+   "a orange cross"
+  ]
+ },
+ {
+  "id": "scene-09",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-09.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a black hexagon",
+  "near": [
+   "a yellow cross",
+   "a black square",
+   "a purple square"
+  ]
+ },
+ {
+  "id": "scene-10",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-10.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a yellow hexagon",
+  "near": [
+   "a purple triangle",
+   "a blue circle",
+   "a orange hexagon"
+  ]
+ },
+ {
+  "id": "scene-11",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-11.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a yellow square",
+  "near": [
+   "a green star",
+   "a purple circle",
+   "a gray hexagon"
+  ]
+ },
+ {
+  "id": "scene-12",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-12.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a blue hexagon",
+  "near": [
+   "a green cross",
+   "a gray circle",
+   "a green square"
+  ]
+ },
+ {
+  "id": "scene-13",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-13.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a black circle",
+  "near": [
+   "a blue square",
+   "a yellow triangle",
+   "a green star"
+  ]
+ },
+ {
+  "id": "scene-14",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-14.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a yellow star",
+  "near": [
+   "a red star",
+   "a gray square",
+   "a yellow square"
+  ]
+ },
+ {
+  "id": "scene-15",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-15.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a red triangle",
+  "near": [
+   "a yellow star",
+   "a red star",
+   "a yellow hexagon"
+  ]
+ },
+ {
+  "id": "scene-16",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-16.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a blue star",
+  "near": [
+   "a purple square",
+   "a green cross",
+   "a blue triangle"
+  ]
+ },
+ {
+  "id": "scene-17",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-17.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a green star",
+  "near": [
+   "a yellow triangle",
+   "a black triangle",
+   "a yellow star"
+  ]
+ },
+ {
+  "id": "scene-18",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-18.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a gray cross",
+  "near": [
+   "a blue circle",
+   "a black square",
+   "a red star"
+  ]
+ },
+ {
+  "id": "scene-19",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-19.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a gray cross",
+  "near": [
+   "a gray square",
+   "a purple square",
+   "a yellow triangle"
+  ]
+ },
+ {
+  "id": "scene-20",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-20.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a yellow circle",
+  "near": [
+   "a blue square",
+   "a orange triangle",
+   "a black hexagon"
+  ]
+ },
+ {
+  "id": "scene-21",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-21.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a orange cross",
+  "near": [
+   "a red star",
+   "a red cross",
+   "a blue circle"
+  ]
+ },
+ {
+  "id": "scene-22",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-22.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a orange square",
+  "near": [
+   "a purple square",
+   "a green cross",
+   "a black square"
+  ]
+ },
+ {
+  "id": "scene-23",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-23.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a purple circle",
+  "near": [
+   "a blue square",
+   "a green circle",
+   "a red hexagon"
+  ]
+ },
+ {
+  "id": "scene-24",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-24.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a red triangle",
+  "near": [
+   "a red cross",
+   "a yellow hexagon",
+   "a purple square"
+  ]
+ },
+ {
+  "id": "scene-25",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-25.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a orange star",
+  "near": [
+   "a green square",
+   "a black square",
+   "a orange square"
+  ]
+ },
+ {
+  "id": "scene-26",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-26.png",
+  "instructions": "Which object is in the bottom-left corner of the image?",
+  "gold": "a black hexagon",
+  "near": [
+   "a yellow hexagon",
+   "a orange triangle",
+   "a gray star"
+  ]
+ },
+ {
+  "id": "scene-27",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-27.png",
+  "instructions": "Which object is in the bottom-right corner of the image?",
+  "gold": "a black cross",
+  "near": [
+   "a yellow circle",
+   "a gray triangle",
+   "a black square"
+  ]
+ },
+ {
+  "id": "scene-28",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-28.png",
+  "instructions": "Which object is in the top-left corner of the image?",
+  "gold": "a black circle",
+  "near": [
+   "a gray cross",
+   "a gray circle",
+   "a red triangle"
+  ]
+ },
+ {
+  "id": "scene-29",
+  "task": "scene",
+  "text": "Here is a picture with four objects.",
+  "image": "images/scene-29.png",
+  "instructions": "Which object is in the top-right corner of the image?",
+  "gold": "a purple star",
+  "near": [
+   "a green triangle",
+   "a black star",
+   "a yellow circle"
+  ]
+ },
+ {
+  "id": "receipt-00",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-00.png",
+  "gold": "$96.90",
+  "near": [
+   "$10.66",
+   "$100.00",
+   "$21.07",
+   "$23.70",
+   "$24.65",
+   "$3.10",
+   "$7.18",
+   "$89.72",
+   "$9.64"
+  ]
+ },
+ {
+  "id": "receipt-01",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-01.png",
+  "gold": "$29.66",
+  "near": [
+   "$17.04",
+   "$2.20",
+   "$20.34",
+   "$27.46",
+   "$3.00",
+   "$50.00",
+   "$7.42"
+  ]
+ },
+ {
+  "id": "receipt-02",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-02.png",
+  "gold": "$79.26",
+  "near": [
+   "$10.66",
+   "$100.00",
+   "$11.30",
+   "$13.13",
+   "$19.08",
+   "$19.22",
+   "$20.74",
+   "$5.87",
+   "$73.39"
+  ]
+ },
+ {
+  "id": "receipt-03",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-03.png",
+  "gold": "$37.77",
+  "near": [
+   "$12.23",
+   "$2.80",
+   "$21.00",
+   "$34.97",
+   "$4.23",
+   "$50.00",
+   "$9.74"
+  ]
+ },
+ {
+  "id": "receipt-04",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-04.png",
+  "gold": "$57.45",
+  "near": [
+   "$10.87",
+   "$100.00",
+   "$14.43",
+   "$14.98",
+   "$4.26",
+   "$4.61",
+   "$42.55",
+   "$53.19",
+   "$8.30"
+  ]
+ },
+ {
+  "id": "receipt-05",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-05.png",
+  "gold": "$90.86",
+  "near": [
+   "$100.00",
+   "$16.14",
+   "$16.63",
+   "$21.97",
+   "$22.37",
+   "$6.73",
+   "$7.02",
+   "$84.13",
+   "$9.14"
+  ]
+ },
+ {
+  "id": "receipt-06",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-06.png",
+  "gold": "$47.80",
+  "near": [
+   "$10.14",
+   "$13.25",
+   "$2.20",
+   "$20.87",
+   "$3.54",
+   "$44.26",
+   "$50.00"
+  ]
+ },
+ {
+  "id": "receipt-07",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-07.png",
+  "gold": "$73.75",
+  "near": [
+   "$100.00",
+   "$16.55",
+   "$2.20",
+   "$20.25",
+   "$24.36",
+   "$26.25",
+   "$4.93",
+   "$5.46",
+   "$68.29"
+  ]
+ },
+ {
+  "id": "receipt-08",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-08.png",
+  "gold": "$44.52",
+  "near": [
+   "$12.20",
+   "$22.00",
+   "$3.30",
+   "$41.22",
+   "$5.48",
+   "$50.00",
+   "$7.02"
+  ]
+ },
+ {
+  "id": "receipt-09",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-09.png",
+  "gold": "$69.48",
+  "near": [
+   "$100.00",
+   "$16.42",
+   "$18.00",
+   "$19.09",
+   "$3.92",
+   "$30.52",
+   "$5.15",
+   "$6.90",
+   "$64.33"
+  ]
+ },
+ {
+  "id": "receipt-10",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-10.png",
+  "gold": "$64.90",
+  "near": [
+   "$1.35",
+   "$100.00",
+   "$11.46",
+   "$18.62",
+   "$19.23",
+   "$35.10",
+   "$4.28",
+   "$4.81",
+   "$5.15",
+   "$60.09"
+  ]
+ },
+ {
+  "id": "receipt-11",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-11.png",
+  "gold": "$38.88",
+  "near": [
+   "$11.12",
+   "$18.34",
+   "$2.88",
+   "$36.00",
+   "$50.00",
+   "$8.21",
+   "$9.45"
+  ]
+ },
+ {
+  "id": "receipt-12",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-12.png",
+  "gold": "$77.85",
+  "near": [
+   "$100.00",
+   "$15.99",
+   "$17.71",
+   "$18.25",
+   "$2.41",
+   "$22.15",
+   "$5.77",
+   "$72.08",
+   "$8.79",
+   "$8.93"
+  ]
+ },
+ {
+  "id": "receipt-13",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-13.png",
+  "gold": "$58.57",
+  "near": [
+   "$100.00",
+   "$12.82",
+   "$16.80",
+   "$24.61",
+   "$4.34",
+   "$41.43",
+   "$54.23"
+  ]
+ },
+ {
+  "id": "receipt-14",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-14.png",
+  "gold": "$90.67",
+  "near": [
+   "$1.67",
+   "$10.74",
+   "$100.00",
+   "$11.11",
+   "$16.97",
+   "$18.57",
+   "$24.89",
+   "$6.72",
+   "$83.95",
+   "$9.33"
+  ]
+ },
+ {
+  "id": "receipt-15",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-15.png",
+  "gold": "$77.95",
+  "near": [
+   "$10.10",
+   "$100.00",
+   "$11.54",
+   "$11.71",
+   "$18.78",
+   "$20.05",
+   "$22.05",
+   "$5.77",
+   "$72.18"
+  ]
+ },
+ {
+  "id": "receipt-16",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-16.png",
+  "gold": "$49.32",
+  "near": [
+   "$0.68",
+   "$10.22",
+   "$20.30",
+   "$3.65",
+   "$45.67",
+   "$5.46",
+   "$50.00",
+   "$9.69"
+  ]
+ },
+ {
+  "id": "receipt-17",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-17.png",
+  "gold": "$49.47",
+  "near": [
+   "$0.53",
+   "$15.92",
+   "$3.66",
+   "$45.81",
+   "$50.00",
+   "$6.44",
+   "$6.89",
+   "$8.16",
+   "$8.40"
+  ]
+ },
+ {
+  "id": "receipt-18",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-18.png",
+  "gold": "$84.66",
+  "near": [
+   "$100.00",
+   "$12.18",
+   "$15.00",
+   "$15.19",
+   "$15.34",
+   "$24.33",
+   "$4.34",
+   "$6.27",
+   "$7.35",
+   "$78.39"
+  ]
+ },
+ {
+  "id": "receipt-19",
+  "task": "receipt",
+  "text": "Here is my receipt from today.",
+  "image": "images/receipt-19.png",
+  "gold": "$26.81",
+  "near": [
+   "$1.99",
+   "$2.06",
+   "$2.34",
+   "$20.42",
+   "$23.19",
+   "$24.82",
+   "$50.00"
+  ]
+ }
+]

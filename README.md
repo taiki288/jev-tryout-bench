@@ -6,9 +6,24 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 判定モデルは文章を生成せず、入力を 1 回通して各選択肢の確率を出す（`POST /v1/systemone`）。
 なので「1 回の判定に何秒かかるか」がそのまま実用上の速さになる。
 
-これまでの結果（Cloudflare Clef / Clef-flash / Clef-omni）: [docs/RESULTS_clef.md](docs/RESULTS_clef.md)
+調べられること:
+- **速さ**: ランタイム・量子化・選択肢の数・画像サイズを変えたときの応答時間、メモリ、電力 → [docs/RESULTS_clef.md](docs/RESULTS_clef.md)
+- **精度**: 答えがはっきりした 330 問で、モデルごとの正解率と時間 → [docs/RESULTS_accuracy.md](docs/RESULTS_accuracy.md)
 
-## 結果の早見表（選択肢 100、平均応答時間 秒、モデル読み込み済み）
+## 精度の早見表（330 問、選択肢 20、画像 448px）
+
+| モデル | ランタイム | 正解率 | 画像付き 1 問 |
+|---|---|---:|---:|
+| d1-2B（bf16） | llama.cpp | 98.5% | 0.15 秒 |
+| Smaug-Decisions（Gemma 4 E4B） | host | 97.6% | 0.94 秒 |
+| d3-nano（bf16） | llama.cpp | 97.3% | 0.29 秒 |
+| Clef（27B, Q4_K_M） | llama.cpp | 96.7% | 3.16 秒 |
+| Clef-flash（9B, bf16） | host | 95.8% | 0.85 秒 |
+| Intern-Decision 2B | host | 94.5% | 0.21 秒 |
+
+小型の判定モデルで Clef-flash と同じかそれ以上の正解率が出る。量子化（Q8〜Q2）は正解率をほぼ落とさないが、速くもならない。
+
+## 速さの早見表（選択肢 100、平均応答時間 秒、モデル読み込み済み）
 
 | モデル | 一番速いランタイム | 画像なし | 画像あり（1024px） |
 |---|---|---:|---:|
@@ -28,12 +43,18 @@ bench/
   try_request.py   手で 1 問ずつ送って時間と答えを見る（標準ライブラリだけ）
   summarize2.py    results/*.summary.jsonl → Markdown の表
   export_dataset.py  使った質問・選択肢・答えを dataset/ に書き出す
+  evalset.py       精度用の問題セット（dataset/eval_v1）を作る
+  eval_acc.py      精度の計測（1 問ずつ答えと時間を記録）
+  adapters.py      モデルの種類ごとの問い合わせ方（/v1/systemone、Clef、Intern-Decision、Smaug）
+  eval_report.py   精度の結果 → Markdown の表
 runtimes/<runtime>/  サーバーの起動・計測スクリプト（common.sh にメモリ監視などの共通処理）
 tools/selftest.sh  全ランタイムのスクリプトが動くかを最小の条件で確かめる（約40分）
+tools/acc_run.sh   一覧ファイルのモデルを順に精度計測する
+tools/acc_lists/   精度計測するモデルの一覧（small.txt: 小型モデル、quant.txt: Clef の量子化）
 setup/             環境の作り方（venv、llama.cpp のビルド、Docker イメージ）
-dataset/           計測に使った質問・選択肢・画像・答え
-results/           計測結果（1 回ごと: *.runs.jsonl、条件ごとの集計: *.summary.jsonl）
-docs/              結果のまとめ、手で速さを確かめる手順
+dataset/           計測に使った質問・選択肢・画像・答え（eval_v1/ は精度用の 330 問）
+results/           計測結果（1 回ごと: *.runs.jsonl、条件ごとの集計: *.summary.jsonl。精度の結果 acc_* は git に入れない）
+docs/              結果のまとめ、手順（HOWTO_SPEEDCHECK.md: 手で速さを確かめる、HOWTO_accuracy.md: 精度の測り方）
 ```
 
 ## 使い方
@@ -55,6 +76,14 @@ runtimes/llamacpp/run.sh ggml-org/Clef-Flash-GGUF Clef-Flash-BF16.gguf mmproj-Cl
 
 # 結果を表にする
 .venv/bin/python bench/summarize2.py results/clef-flash_host_bf16.summary.jsonl
+```
+
+精度を測るときは、一覧ファイルを書き換えて `tools/acc_run.sh` に渡す（詳しくは [docs/HOWTO_accuracy.md](docs/HOWTO_accuracy.md)）。
+
+```bash
+tools/acc_run.sh tools/acc_lists/small.txt download   # 重みを落とす
+tools/acc_run.sh tools/acc_lists/small.txt run        # 一覧を上から順に測る（終わったものは飛ばす）
+python3 bench/eval_report.py results/acc_*.acc.jsonl --options 20 --image 448 --ref clef-flash-bf16-host
 ```
 
 各ランタイムのコマンド例は、スクリプトの先頭のコメントにある。手で 1 問ずつ試すなら [docs/HOWTO_SPEEDCHECK.md](docs/HOWTO_SPEEDCHECK.md)。
@@ -84,9 +113,13 @@ runtimes/llamacpp/run.sh ggml-org/Clef-Flash-GGUF Clef-Flash-BF16.gguf mmproj-Cl
 
 ## 結果を追加するとき
 
+速さの結果:
+
 1. `results/<モデル>_<ランタイム>_<量子化>` の名前で計測する
 2. `bench/summarize2.py` で表にして、`docs/` のまとめに追記する
 3. 使ったモデルの repo、量子化、ランタイムの版、起動オプションを書いておく
+
+精度の結果は、一覧ファイル（`tools/acc_lists/`）に行を足して測り、`bench/eval_report.py` の表を [docs/RESULTS_accuracy.md](docs/RESULTS_accuracy.md) に追記する。
 
 ## 注意
 

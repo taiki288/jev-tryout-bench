@@ -1,0 +1,16 @@
+# Clef-flash (9B) / Clef (27B) at several GGUF quantizations: "a bigger model, strongly quantized" vs the small models.
+# Run: tools/acc_run.sh tools/acc_lists/quant.txt      Format: see the top of tools/acc_run.sh.
+# 448 px only: the 27B is slow (3-4 s per image item), and 448 is the size that reaches 3 Hz on the small models.
+# bartowski's GGUFs have no mmproj of their own, so they use the ggml-org one (<repo>:<file>).
+opts --options 10,20 --image 448
+
+# runtime  name        precision  repo                                  GGUF file                          mmproj
+llamacpp   clef-flash  bf16       ggml-org/Clef-Flash-GGUF              Clef-Flash-BF16.gguf               mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef-flash  q8_0       ggml-org/Clef-Flash-GGUF              Clef-Flash-Q8_0.gguf               mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef-flash  q4_k_m     ggml-org/Clef-Flash-GGUF              Clef-Flash-Q4_K_M.gguf             mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef-flash  q3_k_m     bartowski/Cloudflare_clef-flash-GGUF  Cloudflare_clef-flash-Q3_K_M.gguf  ggml-org/Clef-Flash-GGUF:mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef-flash  iq3_m      bartowski/Cloudflare_clef-flash-GGUF  Cloudflare_clef-flash-IQ3_M.gguf   ggml-org/Clef-Flash-GGUF:mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef-flash  q2_k       bartowski/Cloudflare_clef-flash-GGUF  Cloudflare_clef-flash-Q2_K.gguf    ggml-org/Clef-Flash-GGUF:mmproj-Clef-Flash-BF16.gguf
+llamacpp   clef        q4_k_m     ggml-org/Clef-GGUF                    Clef-Q4_K_M.gguf                   mmproj-Clef-BF16.gguf
+llamacpp   clef        q3_k_m     bartowski/Cloudflare_clef-GGUF        Cloudflare_clef-Q3_K_M.gguf        ggml-org/Clef-GGUF:mmproj-Clef-BF16.gguf
+llamacpp   clef        q2_k       bartowski/Cloudflare_clef-GGUF        Cloudflare_clef-Q2_K.gguf          ggml-org/Clef-GGUF:mmproj-Clef-BF16.gguf

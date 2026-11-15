@@ -1,0 +1,21 @@
+# Small decision models (~1-4B). Run: tools/acc_run.sh tools/acc_lists/small.txt
+# Format: see the top of tools/acc_run.sh.   K = 10, 20 (Smaug takes at most 20); image items at 224 / 448 / 1024 px
+opts --options 10,20 --image 224,448,1024
+
+# runtime      name                  precision  repo                            [GGUF file                     mmproj]
+host:clef      clef-flash            bf16       Cloudflare/clef-flash
+host:intern    intern-decision-0.8b  bf16       internlm/Intern-Decision-0.8B
+host:intern    intern-decision-2b    bf16       internlm/Intern-Decision-2B
+host:intern    intern-decision-4b    bf16       internlm/Intern-Decision-4B
+host:smaug     smaug-decisions       bf16       abacusai/Smaug-Decisions
+
+llamacpp       h2o-lightning-4b      bf16       h2oai/h2o-lightning-4b-gguf     h2o-lightning-4b-BF16.gguf     mmproj-lightning-f16.gguf
+llamacpp       h2o-lightning-4b      q8_0       h2oai/h2o-lightning-4b-gguf     h2o-lightning-4b-Q8_0.gguf     mmproj-lightning-f16.gguf
+llamacpp       h2o-lightning-4b      q4_k_m     h2oai/h2o-lightning-4b-gguf     h2o-lightning-4b-Q4_K_M.gguf   mmproj-lightning-f16.gguf
+llamacpp       h2o-lightning-4b      iq3_xxs    h2oai/h2o-lightning-4b-gguf     h2o-lightning-4b-IQ3_XXS.gguf  mmproj-lightning-f16.gguf
+llamacpp       d1-2b                 bf16       LiquidAI/d1-2B-GGUF             d1-2B-BF16.gguf                mmproj-d1-2B-F16.gguf
+llamacpp       d1-2b                 q8_0       LiquidAI/d1-2B-GGUF             d1-2B-Q8_0.gguf                mmproj-d1-2B-F16.gguf
+llamacpp       d1-2b                 q4_k_m     LiquidAI/d1-2B-GGUF             d1-2B-Q4_K_M.gguf              mmproj-d1-2B-F16.gguf
+llamacpp       d3-nano               bf16       ggml-org/vllm-d3-nano-GGUF      vllm-d3-nano-BF16.gguf         mmproj-vllm-d3-nano-BF16.gguf
+llamacpp       d3-nano               q8_0       ggml-org/vllm-d3-nano-GGUF      vllm-d3-nano-Q8_0.gguf         mmproj-vllm-d3-nano-BF16.gguf
+llamacpp       d3-edge               bf16       ggml-org/vllm-d3-edge-GGUF      vllm-d3-edge-BF16.gguf         mmproj-vllm-d3-edge-BF16.gguf

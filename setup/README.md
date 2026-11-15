@@ -35,3 +35,9 @@ sudo usermod -aG docker $USER              # docker を sudo なしで使う（�
 - メモリ 64GB を CPU と GPU で共有している。足りなくなると Jetson ごと固まるので、どのスクリプトも空きが 3GB（`MIN_AVAIL_MB`）を切ったら処理を止める
 - サーバーは一度に 1 つだけ動かす
 - 計測中にビルドやダウンロードをしない（時間がぶれる）
+
+## 精度の計測（docs/HOWTO_accuracy.md）
+
+- 重みは一覧ファイルから落とせる: `tools/acc_run.sh tools/acc_lists/small.txt download`
+- host で動かす Intern-Decision（Qwen3.5）と Smaug-Decisions（Gemma 4）は transformers 5 系が必要（5.20.1 で確認）
+- llama.cpp の d1 / d3 / h2o-lightning は、`/v1/systemone` がそのモデルの種類に対応した版が必要（a0ad695 で確認）
