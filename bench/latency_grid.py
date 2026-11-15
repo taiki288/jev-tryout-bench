@@ -9,7 +9,6 @@ Uses the same backends as eval_acc.py (bench/adapters.py) and the support-ticket
       --out results/grid_d1-2b_llamacpp_bf16
 Image sizes: 0 = no image, N = N x N, WxH. Combinations a model cannot take (Smaug: more than 20 options)
 are skipped. Writes <out>.grid.jsonl (one line per combination: mean / median / p90 ms, input tokens).
-Plot with bench/grid_plot.py.
 """
 import argparse, json, pathlib, statistics as st, sys, time
 
