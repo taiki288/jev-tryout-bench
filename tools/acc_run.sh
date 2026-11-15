@@ -17,6 +17,7 @@
 #   <runtime> <name> <precision> <repo> [<file> <mmproj>]
 #     runtime    host:<backend>  transformers in this process (backend: clef, intern, smaug; see bench/adapters.py)
 #                llamacpp        llama-server with <file> (GGUF) + <mmproj> (runtimes/llamacpp/run.sh)
+#                edgellm         TensorRT Edge-LLM engine named <file> (build it first: runtimes/edgellm/build.sh)
 #     mmproj     a file in <repo>, or <other repo>:<file>
 #     extra eval_acc.py options for one line can follow after "--", e.g.  ... -- --bnb int8
 # To redo a run, delete its results/acc_*.acc.jsonl (rows are appended, not replaced).
@@ -44,6 +45,7 @@ if [[ $steps == *download* ]]; then
       llamacpp) "$HF" download "$repo" "$file" >/dev/null && echo "downloaded $repo $file"
                 if [[ $mm == *:* ]]; then "$HF" download "${mm%%:*}" "${mm#*:}" >/dev/null
                 else "$HF" download "$repo" "$mm" >/dev/null; fi ;;
+      edgellm)  "$HF" download "$repo" >/dev/null && echo "downloaded $repo (build the engine: runtimes/edgellm/build.sh $repo $file)" ;;
       *) echo "unknown runtime: $rt" ;;
     esac
   done < <(entries)
@@ -67,6 +69,8 @@ if [[ $steps == *run* ]]; then
         if [[ $mm == *:* ]]; then mm="$(snapshot "${mm%%:*}")/${mm#*:}" || continue; fi
         MODE=acc runtimes/llamacpp/run.sh "$repo" "$file" "$mm" "$label" "$out" "${OPTS[@]}" "${extra[@]}" \
           > "$out.log" 2>&1 < /dev/null ;;
+      edgellm)
+        runtimes/edgellm/run.sh "$file" "$label" "$out" "${OPTS[@]}" "${extra[@]}" > /dev/null < /dev/null ;;
       *) echo "unknown runtime: $rt"; continue ;;
     esac
     echo "$(date +%T) $label: exit $?"

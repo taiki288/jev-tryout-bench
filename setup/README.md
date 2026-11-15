@@ -29,6 +29,7 @@ sudo usermod -aG docker $USER              # docker を sudo なしで使う（�
 | SGLang | `docker pull lmsysorg/sglang:dev-cu13-clef`（51.9GB） |
 | llama.cpp | `setup/build_llamacpp.sh`（`~/llama.cpp` にビルド） |
 | ollama | `docker pull ollama/ollama:latest`（0.40.15 で計測） |
+| TensorRT Edge-LLM | `~/.local/bin/uv venv --system-site-packages ~/.venv-edgellm` → `VIRTUAL_ENV=~/.venv-edgellm uv pip install "tensorrt-edgellm[runtime,onnx]==0.12.0"`（JetPack 7.2 付属の TensorRT 10.16 を使う。python3-venv が無いので uv で作る）。エンジンは `runtimes/edgellm/build.sh` で作る |
 
 ## 注意
 

@@ -15,6 +15,7 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 | モデル | ランタイム | 正解率 | 画像付き 1 問 |
 |---|---|---:|---:|
 | d1-2B（bf16） | llama.cpp | 98.5% | 0.15 秒 |
+| Smaug-Decisions（Gemma 4 E4B） | TensorRT（Edge-LLM） | 97.6% | 0.47 秒 |
 | Smaug-Decisions（Gemma 4 E4B） | host | 97.6% | 0.94 秒 |
 | d3-nano（bf16） | llama.cpp | 97.3% | 0.29 秒 |
 | Clef（27B, Q4_K_M） | llama.cpp | 96.7% | 3.16 秒 |
@@ -22,6 +23,7 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 | Intern-Decision 2B | host | 94.5% | 0.21 秒 |
 
 小型の判定モデルで Clef-flash と同じかそれ以上の正解率が出る。量子化（Q8〜Q2）は正解率をほぼ落とさないが、速くもならない。
+TensorRT（Edge-LLM）は Smaug で正解率を変えずに約 2 倍速くなった。
 
 ## 速さの早見表（選択肢 100、平均応答時間 秒、モデル読み込み済み）
 
@@ -47,10 +49,10 @@ bench/
   eval_acc.py      精度の計測（1 問ずつ答えと時間を記録）
   adapters.py      モデルの種類ごとの問い合わせ方（/v1/systemone、Clef、Intern-Decision、Smaug）
   eval_report.py   精度の結果 → Markdown の表
-runtimes/<runtime>/  サーバーの起動・計測スクリプト（common.sh にメモリ監視などの共通処理）
+runtimes/<runtime>/  サーバーの起動・計測スクリプト（common.sh にメモリ監視などの共通処理。edgellm/ は TensorRT のビルドと計測）
 tools/selftest.sh  全ランタイムのスクリプトが動くかを最小の条件で確かめる（約40分）
 tools/acc_run.sh   一覧ファイルのモデルを順に精度計測する
-tools/acc_lists/   精度計測するモデルの一覧（small.txt: 小型モデル、quant.txt: Clef の量子化）
+tools/acc_lists/   精度計測するモデルの一覧（small.txt: 小型モデル、quant.txt: Clef の量子化、tensorrt.txt: TensorRT）
 setup/             環境の作り方（venv、llama.cpp のビルド、Docker イメージ）
 dataset/           計測に使った質問・選択肢・画像・答え（eval_v1/ は精度用の 330 問）
 results/           計測結果（1 回ごと: *.runs.jsonl、条件ごとの集計: *.summary.jsonl。精度の結果 acc_* は git に入れない）

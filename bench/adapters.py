@@ -8,6 +8,7 @@ where rec is a /v1/systemone request (state + one question "route") and img is a
   clef       Cloudflare Clef family in this process (official Cloudflare loader code)
   smaug      abacusai/Smaug-Decisions (Gemma 4 E4B): LM-head logits of the letters A..T, max 20 options
   intern     internlm/Intern-Decision-* (Qwen3.5): logits before the <decision> marker, max 62 options
+  edgellm    Smaug / Intern-Decision as a TensorRT Edge-LLM engine (--engine-dir)
 
 The smaug / intern prompts are written here from the model cards and the authors' reference scripts
 (smaug_decide.py, inference.py); those scripts are not run. Calibration temperatures are left out:
@@ -17,7 +18,7 @@ To add a model that no runtime serves: write a class here with __init__(self, a)
 the repo given with --model) and ask(rec, img) as above, add it to BACKENDS, and list it in tools/acc_lists/
 as `host:<key> <name> <precision> <repo>`. Check it first with `--limit 2` (bench/eval_acc.py).
 """
-import base64, io, json, sys, urllib.request
+import base64, io, json, math, os, sys, urllib.request
 
 
 def _criteria(rec):
@@ -99,19 +100,24 @@ class Smaug:
         self.cap = json.load(open(f"{path}/readout.json")).get("final_logit_softcapping")
         self.torch = torch
 
-    def ask(self, rec, img):
-        torch = self.torch
+    @classmethod
+    def prompt(cls, rec, has_img):
+        """The whole prompt (the answer letter comes next) and the options."""
         instr, opts = _criteria(rec)
-        assert len(opts) <= len(self.LETTERS), f"Smaug takes at most {len(self.LETTERS)} options"
-        parts = [self.PREAMBLE]
+        assert len(opts) <= len(cls.LETTERS), f"Smaug takes at most {len(cls.LETTERS)} options"
+        parts = [cls.PREAMBLE]
         text = _body_text(rec)
-        if img is not None:  # the text becomes the context, the image is the input
+        if has_img:  # the text becomes the context, the image is the input
             parts += [f"Context: {text}", "Input: <|image|>"]
         else:
             parts.append(f"Input: {text}")
-        parts.append("\n".join([f"Question: {instr}"] + [f"{self.LETTERS[i]}) {lab}" for i, (_, lab) in enumerate(opts)]))
+        parts.append("\n".join([f"Question: {instr}"] + [f"{cls.LETTERS[i]}) {lab}" for i, (_, lab) in enumerate(opts)]))
         parts.append("Answer with the letter of the best option.")
-        prompt = "<bos><|turn>user\n" + "\n".join(parts) + "<turn|>\n<|turn>model\n"
+        return "<bos><|turn>user\n" + "\n".join(parts) + "<turn|>\n<|turn>model\n", opts
+
+    def ask(self, rec, img):
+        torch = self.torch
+        prompt, opts = self.prompt(rec, img is not None)
         kw = {"images": [img], "images_kwargs": {"max_soft_tokens": self.IMAGE_TOKENS}} if img is not None else {}
         enc = self.proc(text=[prompt], return_tensors="pt", add_special_tokens=False, **kw).to("cuda")
         with torch.inference_mode():
@@ -145,20 +151,26 @@ class Intern:
         self.sym_ids = [self.tok.encode(s, add_special_tokens=False)[0] for s in self.SYMBOLS]
         self.torch = torch
 
-    def ask(self, rec, img):
-        torch = self.torch
+    @classmethod
+    def prompt(cls, rec, has_img, tmpl):
+        """The chat-formatted text with a <decision> marker where the answer symbol goes, and the options.
+        tmpl: the tokenizer (or processor) whose chat template is used."""
         instr, opts = _criteria(rec)
-        assert len(opts) <= len(self.SYMBOLS)
-        schema = [f"route: {instr}"] + [f"    {self.SYMBOLS[i]} = {oid}: {lab}" for i, (oid, lab) in enumerate(opts)]
+        assert len(opts) <= len(cls.SYMBOLS)
+        schema = [f"route: {instr}"] + [f"    {cls.SYMBOLS[i]} = {oid}: {lab}" for i, (oid, lab) in enumerate(opts)]
         user = ("Return one answer for every field using the supplied answer symbols.\n\n## State\n"
                 + json.dumps(rec["state"], ensure_ascii=False, indent=2) + "\n## Decision schema\n" + "\n".join(schema))
         skeleton = json.dumps({"route": "<decision>"}, ensure_ascii=False, indent=4)
-        content = [{"type": "image"}, {"type": "text", "text": user}] if img is not None else user
-        msgs = [{"role": "system", "content": self.SYSTEM}, {"role": "user", "content": content},
+        content = [{"type": "image"}, {"type": "text", "text": user}] if has_img else user
+        msgs = [{"role": "system", "content": cls.SYSTEM}, {"role": "user", "content": content},
                 {"role": "assistant", "content": skeleton}]
-        tmpl = self.proc if img is not None else self.tok
         text = tmpl.apply_chat_template(msgs, tokenize=False, add_generation_prompt=False, enable_thinking=False,
                                         add_vision_id=True)
+        return text, opts
+
+    def ask(self, rec, img):
+        torch = self.torch
+        text, opts = self.prompt(rec, img is not None, self.proc if img is not None else self.tok)
         enc = (self.proc(text=[text], images=[img], return_tensors="pt") if img is not None
                else self.tok(text, add_special_tokens=False, return_tensors="pt")).to("cuda")
         pos = (enc["input_ids"][0] == self.marker).nonzero().flatten() - 1
@@ -170,4 +182,50 @@ class Intern:
         return {oid: p[i] for i, (oid, _) in enumerate(opts)}, enc["input_ids"].shape[-1]
 
 
-BACKENDS = {"systemone": SystemOne, "clef": Clef, "smaug": Smaug, "intern": Intern}
+class EdgeLLM:
+    """A TensorRT Edge-LLM engine (runtimes/edgellm) of Smaug-Decisions (gemma4) or Intern-Decision (qwen3_5).
+
+    The prompt is the same text as the smaug / intern backends, sent without a chat template. The engine generates
+    one token; the option symbols get a large equal logit bias so that all of them are among the returned top
+    log-probabilities, and their probabilities are renormalized (the bias cancels out).
+    """
+    BIAS = 100.0
+
+    def __init__(self, a):
+        from huggingface_hub import snapshot_download
+        from tensorrt_edgellm import runtime
+        from transformers import AutoTokenizer
+        # --model: an HF repo, or a local checkpoint directory (e.g. one with a patched config.json)
+        path = a.model if os.path.isdir(a.model) else snapshot_download(a.model)
+        self.kind = json.load(open(f"{path}/config.json"))["model_type"]
+        assert self.kind in ("gemma4", "qwen3_5"), f"no decision prompt for model_type {self.kind}"
+        self.tok = AutoTokenizer.from_pretrained(path)
+        self.symbols = Smaug.LETTERS if self.kind == "gemma4" else Intern.SYMBOLS
+        self.sym_ids = [self.tok.encode(s, add_special_tokens=False)[0] for s in self.symbols]
+        self.rt = runtime.load()
+        vis = os.path.join(a.engine_dir, "visual")
+        self.llm = self.rt.LLMRuntime(engine_dir=a.engine_dir, multimodal_engine_dir=vis if os.path.isdir(vis) else "",
+                                      checkpoint_dir=path)
+
+    def ask(self, rec, img):
+        rt = self.rt
+        if self.kind == "gemma4":
+            text, opts = Smaug.prompt(rec, img is not None)
+        else:
+            text, opts = Intern.prompt(rec, img is not None, self.tok)
+            text = text[:text.index("<decision>")]
+        ids = self.sym_ids[:len(opts)]
+        req = rt.create_generation_request([[rt.create_text_message("user", text)]], temperature=0.0, top_k=1,
+                                           max_generate_length=1, apply_chat_template=False,
+                                           logit_bias={i: self.BIAS for i in ids}, num_logprobs=min(50, len(opts)))
+        if img is not None:
+            buf = io.BytesIO(); img.save(buf, format="PNG")
+            req.requests[0].image_buffers = [rt.load_image_from_bytes(buf.getvalue())]
+        res = self.llm.handle_request(req)
+        lp = {e.token_id: e.logprob for e in res.logprobs[0][0]}
+        z = [math.exp(lp[i]) if i in lp else 0.0 for i in ids]
+        s = sum(z)
+        return {oid: z[k] / s for k, (oid, _) in enumerate(opts)}, res.prompt_token_counts[0]
+
+
+BACKENDS = {"systemone": SystemOne, "clef": Clef, "smaug": Smaug, "intern": Intern, "edgellm": EdgeLLM}

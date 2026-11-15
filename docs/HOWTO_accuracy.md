@@ -12,7 +12,8 @@ tools/acc_lists/*.txt   測るモデルの一覧（1 行 = 1 回の計測）。�
 tools/acc_run.sh        一覧を上から順に、ダウンロード → 計測（終わっているものは飛ばす）
         │
         ├─ host:<backend>  bench/eval_acc.py がモデルを直接読み込む（bench/adapters.py）
-        └─ llamacpp        runtimes/llamacpp/run.sh が llama-server を立てて eval_acc.py が問い合わせる
+        ├─ llamacpp        runtimes/llamacpp/run.sh が llama-server を立てて eval_acc.py が問い合わせる
+        └─ edgellm         runtimes/edgellm/run.sh が TensorRT Edge-LLM のエンジンを読み込む（先に build.sh でビルド）
         │
 results/acc_<name>_<runtime>_<precision>.acc.jsonl   1 問 1 行（答え、正誤、正解の確率、時間、トークン数）
         │
@@ -51,7 +52,8 @@ llamacpp       clef-flash          q2_k     bartowski/Cloudflare_clef-flash-GGUF
 host:clef      clef                nf4      Cloudflare/clef               -- --bnb nf4
 ```
 
-- **ランタイム**: `host:<backend>`（transformers でこのプロセスに読み込む。backend は `clef` / `intern` / `smaug`）か `llamacpp`
+- **ランタイム**: `host:<backend>`（transformers でこのプロセスに読み込む。backend は `clef` / `intern` / `smaug`）、`llamacpp`、
+  `edgellm`（5 列目にエンジン名。`runtimes/edgellm/build.sh <repo> <エンジン名>` で先に作る。Smaug と Intern-Decision に対応）
 - **名前・精度**: 結果のファイル名（`results/acc_<名前>_<ランタイム>_<精度>`）と表のラベル（`<名前>-<精度>-<ランタイム>`）になる。精度は自由に書いてよい
 - **mmproj**（llamacpp のみ）: 同じ repo のファイル名か、`<別の repo>:<ファイル名>`（mmproj を持たない GGUF 用）
 - **`--` の後**: その行だけに付ける eval_acc.py のオプション（例: `--bnb nf4`、`--tasks intent`）
@@ -74,6 +76,18 @@ host:clef      clef                nf4      Cloudflare/clef               -- --b
 3. **どのランタイムも対応していないモデル**: `bench/adapters.py` にクラスを足す。
    `ask(rec, img)` が「選択肢 id → 確率」と入力トークン数を返せばよい（モデルカードのプロンプトの形をそのまま書く）。
    `BACKENDS` に登録すると、一覧に `host:<登録名>` で書ける
+
+### TensorRT（Edge-LLM）で測るとき
+
+```bash
+runtimes/edgellm/build.sh abacusai/Smaug-Decisions smaug-fp16 --max-image-tokens 560 --max-image-tokens-per-image 560   # 約 9 分
+tools/acc_run.sh tools/acc_lists/tensorrt.txt run smaug-decisions
+```
+
+エンジンは `~/edgellm-engines/<エンジン名>`、設定を補正したチェックポイント（HF キャッシュへのリンク）は `~/edgellm-ckpt/<エンジン名>` にできる。
+`build.sh` の後ろに `trtedge build` のオプションを付けられる（`--max-input-len` などは build.sh の既定値を上書き）。
+Edge-LLM は 1 トークン生成して上位の log 確率を返す作りなので、`bench/adapters.py` の `EdgeLLM` は選択肢の記号に同じ logit bias を足して確率を読む。
+ほかのモデルの種類を足すときは、`EdgeLLM.ask()` にそのモデルのプロンプトを足す。
 
 ## 問題を足すとき
 

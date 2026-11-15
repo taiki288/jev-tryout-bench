@@ -36,6 +36,7 @@ def main():
     ap.add_argument("--image-raw", action="store_true", help="send images as raw base64 (ollama)")
     ap.add_argument("--code-repo", default=None)
     ap.add_argument("--bnb", choices=["int8", "nf4"], default=None)
+    ap.add_argument("--engine-dir", default=None, help="TensorRT Edge-LLM engine directory (edgellm backend)")
     ap.add_argument("--eval-dir", default=str(ROOT / "dataset" / "eval_v1"))
     ap.add_argument("--options", default="10,20")
     ap.add_argument("--image", default="448", help="image sizes for the image items")

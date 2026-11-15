@@ -10,6 +10,8 @@ Jetson AGX Orin 64GB（MAXN）、1 問ずつ順番に投げたときの平均時
   正解率 98.5%、画像付き 0.15 秒（画像 448px）。3Hz の目標を大きく上回る
 - **量子化しても正解率はほとんど落ちないが、速くもならない。** 判定は入力を 1 回通すだけ（prefill）で、
   計算の量で時間が決まるため。llama.cpp では量子化を強くするほど遅くなる（Clef-flash: BF16 0.95 秒 → Q2 1.37 秒）
+- **TensorRT（Edge-LLM）はモデルによる。** Smaug-Decisions（Gemma 4）は正解率を変えずに画像付きで 0.94 → 0.47 秒（約 2 倍）。
+  Intern-Decision 2B（Qwen3.5）は逆に遅くなった
 - **大きいモデルを強く量子化しても、小型モデルには届かない。** Clef（27B）は Q2 でも 1 問 4 秒で、正解率も d1-2B より低い
 - どのモデルも「点の数を数える」問題が苦手（20 問中 4〜17 問）。ここがモデルの差がいちばん出る
 
@@ -45,6 +47,27 @@ Jetson AGX Orin 64GB（MAXN）、1 問ずつ順番に投げたときの平均時
 - 正解の確率: 正解の選択肢に付けた確率の平均。両方正解でも、自信の差が見える
 - Clef-flash との一致: Clef-flash（host、bf16）と同じ答えを選んだ割合
 - Q3 / IQ3 / Q2 の Clef は bartowski の GGUF（mmproj は ggml-org のもの）。llama.cpp の判定機能でそのまま動いた
+
+## TensorRT（Edge-LLM）
+
+[TensorRT Edge-LLM](https://github.com/NVIDIA/TensorRT-Edge-LLM) v0.12.0（JetPack 7.2 の TensorRT 10.16）で、同じモデルのエンジンを作って比べた。
+作り方は `runtimes/edgellm/build.sh`、計測は `tools/acc_lists/tensorrt.txt`。選択肢 20、画像 448px。
+
+| モデル | ランタイム | 精度 | 正解率 | 正解の確率 | 文章だけ ms | 画像付き ms | transformers 版との一致 |
+|---|---|---|---:|---:|---:|---:|---:|
+| Smaug-Decisions | host（transformers） | bf16 | 97.6% | 0.964 | 180 | 942 | – |
+| Smaug-Decisions | **TensorRT** | fp16 | 97.6% | 0.964 | **123** | **469** | 99.7% |
+| Intern-Decision 2B | host（transformers） | bf16 | 94.5% | 0.918 | 112 | 210 | – |
+| Intern-Decision 2B | TensorRT | fp16 | 95.2% | 0.919 | 164 | 251 | 98.5% |
+
+- Smaug は TensorRT にすると、正解率は同じまま、画像付きで約 2 倍、文章だけで約 1.5 倍速くなった（画像は transformers と同じ 560 トークン）
+- Intern-Decision 2B（Qwen3.5）は逆に 2〜5 割遅くなった。Qwen3.5 は層の 3/4 が線形 attention（Gated DeltaNet）で、
+  transformers 版は flash-linear-attention の Triton カーネルを使っている。Edge-LLM の Orin 向けの実装がまだ遅いと思われる（原因は未調査）
+- 判定の確率は、1 トークンだけ生成させて、選択肢の記号の log 確率を読む（記号に同じ大きさの logit bias を足して上位に入れ、足し直して 1 にする）。
+  transformers 版と確率が小数第 3 位まで一致することを確かめた
+- Smaug の `config.json` は新しい transformers の書き方（`per_layer_config`）で、Edge-LLM 0.12 がそのままでは読めない。
+  `build.sh` が `global_head_dim` を足したコピーを作ってからビルドする
+- エンジンのビルドは Orin 上で約 9 分
 
 ## 画像サイズの影響（全体の正解率 / 画像付き 1 問の時間）
 
