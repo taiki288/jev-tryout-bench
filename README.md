@@ -16,6 +16,7 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 |---|---|---:|---:|
 | d1-2B（bf16） | llama.cpp | 98.5% | 0.15 秒 |
 | Smaug-Decisions（Gemma 4 E4B） | TensorRT（Edge-LLM） | 97.6% | 0.47 秒 |
+| Smaug-Decisions（Gemma 4 E4B, INT8 W8A8, 画像 280 トークン） | TensorRT（Edge-LLM） | 97.0% | 0.155 秒 |
 | Smaug-Decisions（Gemma 4 E4B, INT8 W8A8） | TensorRT（Edge-LLM） | 97.0% | 0.35 秒 |
 | Smaug-Decisions（Gemma 4 E4B） | host | 97.6% | 0.94 秒 |
 | d3-nano（bf16） | llama.cpp | 97.3% | 0.29 秒 |
@@ -24,7 +25,8 @@ Jetson AGX Orin 64GB で、Jev 互換の判定モデル（System One / decision 
 | Intern-Decision 2B | host | 94.5% | 0.21 秒 |
 
 小型の判定モデルで Clef-flash と同じかそれ以上の正解率が出る。量子化（Q8〜Q2）は正解率をほぼ落とさないが、速くもならない。
-TensorRT（Edge-LLM）は Smaug で正解率を変えずに約 2 倍、計算も INT8 にする量子化（W8A8）で約 2.7 倍速くなった。
+選択肢の数 × 画像サイズごとの時間はコンター図にした（[docs/RESULTS_accuracy.md](docs/RESULTS_accuracy.md#選択肢の数--画像サイズ--時間コンター図)）。
+TensorRT（Edge-LLM）は Smaug で正解率を変えずに約 2 倍、計算も INT8 にする量子化（W8A8）で約 2.7 倍、さらに画像を 280 トークンにして約 6 倍速くなった。
 
 ## 速さの早見表（選択肢 100、平均応答時間 秒、モデル読み込み済み）
 
@@ -50,6 +52,8 @@ bench/
   eval_acc.py      精度の計測（1 問ずつ答えと時間を記録）
   adapters.py      モデルの種類ごとの問い合わせ方（/v1/systemone、Clef、Intern-Decision、Smaug）
   eval_report.py   精度の結果 → Markdown の表
+  latency_grid.py  選択肢の数 × 画像サイズ（横長も可）ごとの時間
+  grid_plot.py     latency_grid.py の結果 → コンター図
 runtimes/<runtime>/  サーバーの起動・計測スクリプト（common.sh にメモリ監視などの共通処理。edgellm/ は TensorRT のビルドと計測）
 tools/selftest.sh  全ランタイムのスクリプトが動くかを最小の条件で確かめる（約40分）
 tools/acc_run.sh   一覧ファイルのモデルを順に精度計測する

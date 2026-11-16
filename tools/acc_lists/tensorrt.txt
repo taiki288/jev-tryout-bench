@@ -2,10 +2,12 @@
 #   runtimes/edgellm/build.sh abacusai/Smaug-Decisions smaug-fp16 --max-image-tokens 560 --max-image-tokens-per-image 560
 #   runtimes/edgellm/build.sh internlm/Intern-Decision-2B intern-2b-fp16
 #   INT8 (W8A8 SmoothQuant): see the top of runtimes/edgellm/build.sh (smaug-int8sq)
+#   280 image tokens: runtimes/edgellm/build.sh ~/edgellm-ckpt/smaug-int8sq-src smaug-int8sq-280 --max-image-tokens 280 --max-image-tokens-per-image 280
 # Run: tools/acc_run.sh tools/acc_lists/tensorrt.txt run       Format: see the top of tools/acc_run.sh.
 opts --options 10,20 --image 448
 
 # runtime  name             precision  repo                      engine name
 edgellm    smaug-decisions  fp16       abacusai/Smaug-Decisions  smaug-fp16
 edgellm    smaug-decisions  int8_sq    abacusai/Smaug-Decisions  smaug-int8sq
+edgellm    smaug-decisions  int8_sq-img280  abacusai/Smaug-Decisions  smaug-int8sq-280
 edgellm    intern-decision-2b  fp16   internlm/Intern-Decision-2B  intern-2b-fp16

@@ -89,6 +89,23 @@ tools/acc_run.sh tools/acc_lists/tensorrt.txt run smaug-decisions
 Edge-LLM は 1 トークン生成して上位の log 確率を返す作りなので、`bench/adapters.py` の `EdgeLLM` は選択肢の記号に同じ logit bias を足して確率を読む。
 ほかのモデルの種類を足すときは、`EdgeLLM.ask()` にそのモデルのプロンプトを足す。
 
+## 時間の地図（コンター図）
+
+正解率ではなく、選択肢の数 × 画像サイズで時間がどう変わるかを測る。画像は横:縦を自由に決められる（`WxH`）。
+
+```bash
+# サーバー型（llama.cpp）: MODE=grid で eval_acc.py の代わりに latency_grid.py が動く
+MODE=grid runtimes/llamacpp/run.sh LiquidAI/d1-2B-GGUF d1-2B-BF16.gguf mmproj-d1-2B-F16.gguf d1-2b-bf16-llamacpp     results/contour_d1-2b_llamacpp_bf16 --options 5,10,20,50,100 --image 0,448x224,896x448,1344x672 --reps 5
+# TensorRT（Edge-LLM）
+MODE=grid runtimes/edgellm/run.sh smaug-int8sq-280 smaug-int8sq-280-edgellm results/contour_smaug-int8sq-280 --options 5,10,20
+# transformers
+.venv/bin/python bench/latency_grid.py --backend intern --model internlm/Intern-Decision-2B --label intern-2b     --out results/contour_intern-2b --options 5,20,50
+# 図にする（numpy と matplotlib だけ使う。Orin ではシステムの /usr/bin/python3 に入っている）
+/usr/bin/python3 bench/grid_plot.py results/contour_*.grid.jsonl --out docs/img/contour.png --lines 20
+```
+
+`--lines 20` で、選択肢 20 個のときの「画像の横幅 → 時間」の折れ線グラフ（`contour_K20.png`）も出る。
+
 ## 問題を足すとき
 
 `bench/evalset.py` の `TASKS` と、問題を作る部分（`build()`）に足して、`eval_v2` として作り直す
